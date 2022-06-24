@@ -7,19 +7,19 @@
 
 import UIKit
 
-enum Axis: String, Codable {
+public enum Axis: String, Codable {
     case horizontal = "h"
     case vertical = "v"
     
     var opposite: Axis {return self == .horizontal ? .vertical : .horizontal}
     
-    var stackViewAxis: NSLayoutConstraint.Axis {
+    public var stackViewAxis: NSLayoutConstraint.Axis {
         return self == .horizontal ? .horizontal : .vertical
     }
     
 }
 
-extension CGPoint {
+public extension CGPoint {
     
     func float(onAxis axis: Axis) -> CGFloat {
         return axis == .horizontal ? x : y
