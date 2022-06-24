@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Helper",
+    name: "GeneralHelper",
     defaultLocalization: "en",
     platforms: [
         .iOS(.v13),
