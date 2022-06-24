@@ -7,12 +7,12 @@
 
 import QuartzCore
 
-struct CubicCurve {
-    var start: CGPoint
-    var startTangent: CGPoint
+public struct CubicCurve {
+    public var start: CGPoint
+    public var startTangent: CGPoint
     
-    var end: CGPoint
-    var endTangent: CGPoint
+    public var end: CGPoint
+    public var endTangent: CGPoint
     
     func reversed() -> CubicCurve {
         return .init(start: end, startTangent: endTangent, end: start, endTangent: startTangent)
