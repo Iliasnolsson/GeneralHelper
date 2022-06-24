@@ -15,7 +15,8 @@ let package = Package(
         .library(
             name: "Helper",
             targets: [
-                "Helper"
+                "Helper",
+                "File"
             ]),
     ],
     dependencies: [
@@ -30,6 +31,6 @@ let package = Package(
             dependencies: []),
         .target(
             name: "File",
-            dependencies: []),
+            dependencies: [])
     ]
 )
