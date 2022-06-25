@@ -7,7 +7,7 @@
 
 import QuickLook
 
-protocol CornerObservingLayerDelegate: AnyObject {
+public protocol CornerObservingLayerDelegate: AnyObject {
     
     func layerCornerRadiusDidChange(to newCornerRadius: CGFloat)
     
@@ -16,7 +16,7 @@ protocol CornerObservingLayerDelegate: AnyObject {
 }
 
 
-extension CornerObservingLayerDelegate {
+public extension CornerObservingLayerDelegate {
     
     func layerCornerRadiusDidChange(to newCornerRadius: CGFloat) {
     }

@@ -7,20 +7,20 @@
 
 import UIKit
 
-class NavigationController: UINavigationController {
+public class NavigationController: UINavigationController {
     
-    var barHeightAddon: CGFloat = 0 {
+    public var barHeightAddon: CGFloat = 0 {
         didSet {
             (navigationBar as? NavigationBar)?.heightAddon = barHeightAddon
             viewControllers.forEach {$0.additionalSafeAreaInsets.top = barHeightAddon}
         }
     }
 
-    init() {
+    public init() {
         super.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
     }
     
-    override init(rootViewController: UIViewController) {
+    override public init(rootViewController: UIViewController) {
         super.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
         viewControllers = [rootViewController]
     }

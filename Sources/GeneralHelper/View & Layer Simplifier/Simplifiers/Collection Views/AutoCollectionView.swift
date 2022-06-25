@@ -7,11 +7,11 @@
 
 import UIKit
 
-class AutoCollectionView: CollectionView {
+public class AutoCollectionView: CollectionView {
     
-    private(set) var register = [String]()
+    public private(set) var register = [String]()
     
-    override func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
+    override public func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
         if cellClass == nil {
             if let identifierIndex = register.firstIndex(of: identifier) {
                 register.remove(at: identifierIndex)
@@ -22,7 +22,7 @@ class AutoCollectionView: CollectionView {
         super.register(cellClass, forCellWithReuseIdentifier: identifier)
     }
     
-    func cell<T: UICollectionViewCell>(forClass: T.Type, forPath path: IndexPath) -> T {
+    public func cell<T: UICollectionViewCell>(forClass: T.Type, forPath path: IndexPath) -> T {
         return cell(forIdentifier: String(describing: forClass), cellClass: forClass, forPath: path) as! T
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITableViewCell {
+public extension UITableViewCell {
     
     static var identifier: String {.init(describing: Self.self)}
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIControl {
+public extension UIControl {
     
     @available(iOS 14.0, *)
     func addTarget(for controlEvents: UIControl.Event = .touchUpInside, _ closure: @escaping()->()) {

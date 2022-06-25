@@ -7,11 +7,16 @@
 
 import CoreGraphics
 
-struct FloatTextFormatter {
+public struct FloatTextFormatter {
     
     private static var punctuation = "."
     private var formatter: (_ value: CGFloat, _ endsWithPunctuation: Bool) -> (String)
     
+}
+
+
+public extension FloatTextFormatter {
+        
     init(addingWithoutSpacing stringToAdd: String, decimals: Int = 0) {
         formatter = {value, endsWithPunct in value.string(withDecimals: decimals) + (endsWithPunct ? FloatTextFormatter.punctuation : "") + stringToAdd}
     }

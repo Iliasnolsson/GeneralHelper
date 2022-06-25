@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     // Superviews ordered from the parent of this uiview to the highest superview
     var superviews: [UIView] {

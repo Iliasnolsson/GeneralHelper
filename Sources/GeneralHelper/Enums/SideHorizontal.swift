@@ -7,9 +7,12 @@
 
 import Foundation
 
-enum SideHorizontal {
+public enum SideHorizontal {
     case left
     case right
+}
+
+public extension SideHorizontal {
     
     var opposite: Side {
         switch self {
@@ -19,4 +22,5 @@ enum SideHorizontal {
             return .left
         }
     }
+    
 }

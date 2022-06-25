@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ImageView: UIImageView {
+public class ImageView: UIImageView {
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }

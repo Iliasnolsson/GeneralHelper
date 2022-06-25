@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ScrollViewGestureDelegate: AnyObject {
+public protocol ScrollViewGestureDelegate: AnyObject {
     
     func scrollingCanBegin(_ scrollView: UIScrollView) -> Bool
     

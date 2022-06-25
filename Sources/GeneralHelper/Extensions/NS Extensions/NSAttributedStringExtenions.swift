@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension Dictionary where Key == NSAttributedString.Key, Value: Any {
+public extension Dictionary where Key == NSAttributedString.Key, Value: Any {
     
     func withDefaultSpacing(font: UIFont) -> [Key : Value] {
         var attributes = self
@@ -23,7 +23,7 @@ extension Dictionary where Key == NSAttributedString.Key, Value: Any {
     
 }
 
-extension NSAttributedString {
+public extension NSAttributedString {
     
     func withForegroundColor(_ newColor: UIColor?, forWord word: String) -> NSAttributedString {
         if string.isEmpty {return self}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Timer {
+public extension Timer {
     
     static func delay(_ duration: Double, _ closure: @escaping (() -> ())) {
         Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { timer in

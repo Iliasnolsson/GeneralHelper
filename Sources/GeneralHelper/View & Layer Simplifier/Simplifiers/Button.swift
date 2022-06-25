@@ -7,11 +7,11 @@
 
 import UIKit
 
-class Button: UIButton {
+public class Button: UIButton {
     
     private var tintColorForStates: (isEnabledColor: UIColor, isDisabledColor: UIColor)?
     
-    var isAlmostConcave: Bool = false {
+    public var isAlmostConcave: Bool = false {
         didSet {
             if isAlmostConcave && isRounded {
                 isRounded = false
@@ -21,7 +21,7 @@ class Button: UIButton {
         }
     }
     
-    var isRounded: Bool = false {
+    public var isRounded: Bool = false {
         didSet {
             if isRounded && isAlmostConcave {
                 isAlmostConcave = false
@@ -32,13 +32,13 @@ class Button: UIButton {
     }
       
     private var backgroundColorNormal: UIColor?
-    var backgroundColorHighlighted: UIColor? {
+    public var backgroundColorHighlighted: UIColor? {
         didSet {
             backgroundColorReload()
         }
     }
     
-    override var isHighlighted: Bool {
+    override public var isHighlighted: Bool {
         get {super.isHighlighted}
         set {
             let oldValue = isHighlighted
@@ -49,26 +49,26 @@ class Button: UIButton {
         }
     }
     
-    override var isEnabled: Bool {
+    override public var isEnabled: Bool {
         didSet {
             if oldValue == isEnabled {return}
             isEnabledChanged()
         }
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
     @available(iOS 15.0, *)
-    static func initalize(withConfig configuration: UIButton.Configuration) -> UIButton {
+    public static func initalize(withConfig configuration: UIButton.Configuration) -> UIButton {
         let button = UIButton(configuration: configuration, primaryAction: nil)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         reloadCorners()
     }
@@ -86,7 +86,7 @@ class Button: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func tintColorSetFor(whenEnabled: UIColor, whenDisabled: UIColor) {
+    public func tintColorSetFor(whenEnabled: UIColor, whenDisabled: UIColor) {
         tintColorForStates = (whenEnabled, whenDisabled)
         isEnabledChanged()
     }

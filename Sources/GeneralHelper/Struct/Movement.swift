@@ -7,21 +7,26 @@
 
 import Foundation
 
-struct Movement<T: Codable>: Codable where T: Equatable {
-    var from: T
-    var to: T
+public struct Movement<T: Codable>: Codable where T: Equatable {
+    public var from: T
+    public var to: T
     
-    init(from: T, to: T) {
+    public init(from: T, to: T) {
         self.from = from
         self.to = to
-    }
-    
-    func reversed() -> Movement<T> {
-        return .init(from: to, to: from)
     }
     
     enum CodingKeys: String, CodingKey {
         case from = "f"
         case to = "t"
     }
+}
+
+
+public extension Movement {
+
+    func reversed() -> Movement<T> {
+        return .init(from: to, to: from)
+    }
+    
 }

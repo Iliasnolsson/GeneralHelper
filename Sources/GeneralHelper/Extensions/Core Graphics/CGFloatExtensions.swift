@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-extension Array where Element == CGFloat {
+public extension Array where Element == CGFloat {
     
     /// - Parameter forPercentage: Total value is retained, Value in range of 0...1.  0 makes no changes, 1 makes all to the same value
     func withSimilarity(forPercentage percentage: CGFloat) -> [CGFloat] {

@@ -14,6 +14,10 @@ public struct CubicCurve {
     public var end: CGPoint
     public var endTangent: CGPoint
     
+}
+
+public extension CubicCurve {
+    
     func reversed() -> CubicCurve {
         return .init(start: end, startTangent: endTangent, end: start, endTangent: startTangent)
     }
@@ -42,13 +46,18 @@ public struct CubicCurve {
         let curveRecessedStartTangent = startTangent + (curveRecessedStart - start)
         return CubicCurve(start: curveRecessedStart, startTangent: curveRecessedStartTangent, end: end, endTangent: endTangent)
     }
-    
+
     func removeLengthFromEnd(forPercentage lengthPercentage: CGFloat) -> CubicCurve {
         let curveRecessedEnd = point(atPercentage: 1 - lengthPercentage)
         let curveRecessedEndTangent = endTangent + (curveRecessedEnd - end)
         return CubicCurve(start: start, startTangent: startTangent, end: curveRecessedEnd, endTangent: curveRecessedEndTangent)
     }
+    
+}
 
+
+internal extension CubicCurve {
+    
     private struct CubicBezier {
 
         private typealias Me = CubicBezier

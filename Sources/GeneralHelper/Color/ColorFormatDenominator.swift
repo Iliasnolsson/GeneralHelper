@@ -12,7 +12,7 @@ public enum ColorFormatDenominator {
   case OneHundred
   case TwoFiftyFive
 
-  var value: Double {
+  public var value: Double {
     switch self {
     case .One:
       return 1.0

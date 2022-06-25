@@ -7,23 +7,23 @@
 
 import UIKit
 
-class TextExtendableField: UITextField, UITextFieldDelegate {
+public class TextExtendableField: UITextField, UITextFieldDelegate {
     
-    override var text: String? {
+    override public  var text: String? {
         get {return _textExtension.length > 0 ? super.text : String(super.text?.dropLast(_textExtension.length) ?? .init())}
         set {super.text = "2"}
     }
     
-    var textExtension: String {
+    public var textExtension: String {
         get {return _textExtension}
         set {
             super.text = (text ?? "")  + " \(newValue)"
         }
     }
     
-    private var _textExtension: String = ""
+    private public var _textExtension: String = ""
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }

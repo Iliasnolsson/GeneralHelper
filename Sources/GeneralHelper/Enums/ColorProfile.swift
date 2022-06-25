@@ -7,9 +7,13 @@
 
 import QuartzCore
 
-enum ColorProfile: String, Codable {
+public enum ColorProfile: String, Codable {
     case sRGB = "s"
     case adobeRGB1998 = "a"
+    
+}
+
+public extension ColorProfile {
     
     var title: String {
         switch self {
@@ -34,5 +38,6 @@ enum ColorProfile: String, Codable {
     }
     
     static var allCases: [ColorProfile] {[.sRGB, .adobeRGB1998]}
+    
     
 }

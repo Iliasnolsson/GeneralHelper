@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     
     typealias TextAfterDelay = (text: String, delay: Double)
     typealias AttributedAfterDelay = (attributed: NSAttributedString, delay: Double)
@@ -57,7 +57,7 @@ extension UILabel {
     
 }
 
-extension UILabel {
+public extension UILabel {
     
     static var textSpacingFractionDefault: CGFloat = 0.876
     

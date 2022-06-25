@@ -7,10 +7,14 @@
 
 import Foundation
 
-enum SideOrCenterHorizontal {
+public enum SideOrCenterHorizontal {
     case left
     case center
     case right
+}
+
+
+public extension SideOrCenterHorizontal {
     
     var opposite: SideOrCenterHorizontal {
         switch self {

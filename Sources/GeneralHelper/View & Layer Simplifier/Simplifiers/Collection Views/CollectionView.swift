@@ -7,19 +7,27 @@
 
 import UIKit
 
-class CollectionView: UICollectionView {
+public class CollectionView: UICollectionView {
     
-    weak var gestureDelegate: ScrollViewGestureDelegate?
+    public weak var gestureDelegate: ScrollViewGestureDelegate?
     
-    init(layout: UICollectionViewFlowLayout) {
+    public init(layout: UICollectionViewFlowLayout) {
         super.init(frame: .zero, collectionViewLayout: layout)
         backgroundColor = .clear
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    convenience init() {
+    public convenience init() {
         self.init(layout: UICollectionViewFlowLayout())
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+public extension CollectionView {
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == self.panGestureRecognizer  {
@@ -73,10 +81,6 @@ class CollectionView: UICollectionView {
             }
         }
         return (indiciesRemoved, indexMovements, indiciesInserted, indiciesNeedingUpdate)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

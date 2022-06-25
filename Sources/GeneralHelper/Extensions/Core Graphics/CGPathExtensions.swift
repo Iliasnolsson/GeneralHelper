@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension CGPath {
+public extension CGPath {
     
     static func point(forPercentage t: CGFloat, onCubicPath cubicPath: CubicCurve) -> CGPoint {
         let p0 = cubicPath.start

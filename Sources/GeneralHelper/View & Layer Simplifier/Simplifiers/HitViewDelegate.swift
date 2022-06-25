@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HitViewDelegate: AnyObject {
+public protocol HitViewDelegate: AnyObject {
     
     func hitTest(_ point: CGPoint, view: UIView?, with event: UIEvent?) -> UIView?
     

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum DayOfWeek: String, Codable, Comparable {
+public enum DayOfWeek: String, Codable, Comparable {
     case monday = "m"
     case tuesday = "t"
     case wednesday = "w"
@@ -17,7 +17,7 @@ enum DayOfWeek: String, Codable, Comparable {
     case saturday = "s"
     case sunday = "n"
     
-    init?(dayNumber: Int) {
+    public init?(dayNumber: Int) {
         switch dayNumber {
         case 1:
             self = .monday
@@ -37,6 +37,17 @@ enum DayOfWeek: String, Codable, Comparable {
             return nil
         }
     }
+    
+    private var symbolNumber: Int {
+        if self == .sunday {
+            return 0
+        }
+        return dayNumber
+    }
+    
+}
+
+public extension DayOfWeek {
     
     var dayNumber: Int {
         switch self {
@@ -66,13 +77,6 @@ enum DayOfWeek: String, Codable, Comparable {
     
     static func < (lhs: DayOfWeek, rhs: DayOfWeek) -> Bool {
         return lhs.dayNumber < rhs.dayNumber
-    }
-    
-    private var symbolNumber: Int {
-        if self == .sunday {
-            return 0
-        }
-        return dayNumber
     }
     
 }

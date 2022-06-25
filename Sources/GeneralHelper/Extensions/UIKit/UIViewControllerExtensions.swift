@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
     func setNavigationBarContraintsView(_ constraintsView: UIView, alignment: SideOrCenterHorizontal) {
         constraintsView.translatesAutoresizingMaskIntoConstraints = false

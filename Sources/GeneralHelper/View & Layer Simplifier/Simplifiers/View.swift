@@ -7,14 +7,14 @@
 
 import UIKit
 
-class View: UIView {
+public class View: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -22,6 +22,11 @@ class View: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+}
+
+
+public extension View {
     
     static func highlight(_ view: UIView) {
         UIView.animate(withDuration: 0.08) {

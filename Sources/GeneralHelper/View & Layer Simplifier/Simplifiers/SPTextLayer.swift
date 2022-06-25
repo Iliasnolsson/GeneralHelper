@@ -7,11 +7,11 @@
 
 import QuartzCore
 
-class SPTextLayer : CATextLayer {
+public class SPTextLayer : CATextLayer {
     
-    var alignmentModeVertical: VerticalAlignmentMode = .top
+    public var alignmentModeVertical: VerticalAlignmentMode = .top
     
-    override func draw(in context: CGContext) {
+    override public func draw(in context: CGContext) {
         if alignmentModeVertical == .center {
             let height = bounds.size.height
             let fontSize = fontSize
@@ -24,7 +24,7 @@ class SPTextLayer : CATextLayer {
         }
     }
     
-    enum VerticalAlignmentMode {
+    public enum VerticalAlignmentMode {
         case top
         case center
     }

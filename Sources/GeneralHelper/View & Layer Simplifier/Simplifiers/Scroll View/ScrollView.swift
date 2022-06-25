@@ -7,16 +7,16 @@
 
 import UIKit
 
-class ScrollView: UIScrollView {
+public class ScrollView: UIScrollView {
     
-    weak var gestureDelegate: ScrollViewGestureDelegate?
+    public weak var gestureDelegate: ScrollViewGestureDelegate?
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == self.panGestureRecognizer  {
             return gestureDelegate?.scrollingCanBegin(self) ?? true
         }

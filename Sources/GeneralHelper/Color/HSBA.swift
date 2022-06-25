@@ -7,25 +7,29 @@
 
 import UIKit
 
-struct HSBA: Codable, Color {
-    var h: CGFloat
-    var s: CGFloat
-    var b: CGFloat
-    var a: CGFloat
+public struct HSBA: Codable, Color {
+    public var h: CGFloat
+    public var s: CGFloat
+    public var b: CGFloat
+    public var a: CGFloat
     
-    init() {
+    public init() {
         h = 0
         s = 0
         b = 0
         a = 0
     }
 
-    init(h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat = 1) {
+    public init(h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.h = h
         self.s = s
         self.b = b
         self.a = a
     }
+    
+}
+
+public extension HSBA {
     
     static func initalize(rgba: RGBA) -> HSBA {
         return rgba.hsba()
@@ -49,4 +53,3 @@ struct HSBA: Codable, Color {
     }
     
 }
-

@@ -7,7 +7,7 @@
 
 import UIKit
  
-extension UIGestureRecognizer {
+public extension UIGestureRecognizer {
     
     var isActive: Bool {
         let activeStates: [UIGestureRecognizer.State] = [.began, .changed, .ended]
@@ -16,7 +16,7 @@ extension UIGestureRecognizer {
     
 }
 
-extension UIGestureRecognizer.State {
+public extension UIGestureRecognizer.State {
     
     
     var isFinalState: Bool {

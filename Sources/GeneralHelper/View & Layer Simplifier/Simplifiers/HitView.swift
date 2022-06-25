@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HitView: UIView {
+public class HitView: UIView {
     
-    weak var delegate: HitViewDelegate?
+    public weak var delegate: HitViewDelegate?
     
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event)
         return delegate?.hitTest(point, view: view, with: event)
     }

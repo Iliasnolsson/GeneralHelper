@@ -8,7 +8,7 @@
 import CoreGraphics
 import UIKit
 
-extension CGColor {
+public extension CGColor {
     
     static func initalize(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat, colorSpaceIdentifier: CFString = CGColorSpace.sRGB) -> CGColor {
         let colorSpace = CGColorSpace(name: colorSpaceIdentifier)!

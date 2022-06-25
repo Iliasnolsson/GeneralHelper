@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum SpecialMathSymbol {
+public enum SpecialMathSymbol {
     case powerOfTwo
     case powerOfThree
 
@@ -25,7 +25,7 @@ enum SpecialMathSymbol {
     case tangent
 }
 
-extension SpecialMathSymbol {
+public extension SpecialMathSymbol {
     
     init?(string: String) {
         if let character = string.first {

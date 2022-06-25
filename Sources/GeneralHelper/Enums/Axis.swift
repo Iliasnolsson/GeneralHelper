@@ -11,9 +11,13 @@ public enum Axis: String, Codable {
     case horizontal = "h"
     case vertical = "v"
     
+}
+
+public extension Axis {
+    
     var opposite: Axis {return self == .horizontal ? .vertical : .horizontal}
     
-    public var stackViewAxis: NSLayoutConstraint.Axis {
+    var stackViewAxis: NSLayoutConstraint.Axis {
         return self == .horizontal ? .horizontal : .vertical
     }
     

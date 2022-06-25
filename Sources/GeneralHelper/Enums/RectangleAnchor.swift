@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-enum RectangleAnchor {
+public enum RectangleAnchor {
     case center
     
     case topCenter
@@ -21,7 +21,7 @@ enum RectangleAnchor {
     case bottomRight
 }
 
-extension RectangleAnchor {
+public extension RectangleAnchor {
     
     var opposite: RectangleAnchor {
         switch self {
@@ -65,7 +65,7 @@ extension RectangleAnchor {
     
 }
 
-extension CGRect {
+public extension CGRect {
     
     func increase(byTranslation translation: CGPoint, fromAnchor anchor: RectangleAnchor, keepAspect: Bool) -> CGRect {
         return increase(byTranslation: translation, fromAnchor: anchor, keepAspect: keepAspect, containWithinRect: nil, magnetLines: [], snapOnDistance: 0, magnetLinesCompletion: nil)

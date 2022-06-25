@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension ClosedRange where Bound: FloatingPoint {
+public extension ClosedRange where Bound: FloatingPoint {
     
     func lengthExpand(by value: Bound) -> ClosedRange<Bound> {
         return (self.lowerBound - value)...(self.upperBound + value)

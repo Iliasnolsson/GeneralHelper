@@ -46,6 +46,12 @@ public struct RGBA: Color {
         self.init(r: r255/255, g: g255/255, b: b255/255, a: a1)
     }
     
+}
+
+
+public extension RGBA {
+    
+    
     static func initalize(rgba: RGBA) -> RGBA {
         return rgba
     }
@@ -55,6 +61,3 @@ public struct RGBA: Color {
     }
     
 }
-
-
-

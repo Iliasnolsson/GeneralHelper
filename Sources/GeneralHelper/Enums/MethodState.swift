@@ -7,13 +7,13 @@
 
 import UIKit
 
-enum MethodState {
+public enum MethodState {
     case began
     case changed
     case ended
     case none
     
-    init(gestureState: UIGestureRecognizer.State) {
+    public init(gestureState: UIGestureRecognizer.State) {
         switch gestureState {
         case .began:
             self = .began
@@ -27,6 +27,10 @@ enum MethodState {
             self = .ended
         }
     }
+    
+}
+
+public extension MethodState {
     
     var isFinalState: Bool {return self == .ended || self == .none}
     

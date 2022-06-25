@@ -7,11 +7,11 @@
 
 import UIKit
 
-extension Numeric {
+public extension Numeric {
     var formattedWithSeparator: String { Formatter.withSeparator.string(for: self) ?? "" }
 }
 
-extension Formatter {
+public extension Formatter {
     static let withSeparator: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -21,7 +21,7 @@ extension Formatter {
 }
 
 // MARK: Number Spacings
-extension String {
+public extension String {
     
     func insertSpacingInNumbers() -> String {
         return insertSpacingInNumbersInternal(selectedIndex: nil).text
@@ -145,7 +145,7 @@ extension String {
 }
 
 // MARK: Stylized to Calculatable, Calculatable to Stylized
-extension String {
+public extension String {
     
     func calculatableStylized(maxNumberOfDecimals: Int? = nil) -> String? {
         var result = self
@@ -401,7 +401,7 @@ extension String {
     
 }
 
-extension String {
+public extension String {
     
     func widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
@@ -504,7 +504,7 @@ extension String {
     
 }
 
-extension String {
+public extension String {
     
     
     var cgColor: CGColor {

@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension CGMutablePath {
+public extension CGMutablePath {
     
     // Degrees start from middle top of circle, not at 90 degrees as it usually would
     func addArcLogical(center: CGPoint, radius: CGFloat, startDegrees: CGFloat, endDegrees: CGFloat, clockwise: Bool) {

@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension CAMediaTimingFunction {
+public extension CAMediaTimingFunction {
     
     static let defaultTiming = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
     static let linear = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)

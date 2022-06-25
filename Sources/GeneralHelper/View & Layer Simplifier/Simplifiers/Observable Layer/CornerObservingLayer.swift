@@ -7,9 +7,13 @@
 
 import QuartzCore
 
-class CornerObservingLayer: CALayer {
+public class CornerObservingLayer: CALayer {
     
     weak var cornerDelegate: CornerObservingLayerDelegate?
+    
+}
+
+public extension CornerObservingLayer {
     
     override var cornerRadius: CGFloat {
         didSet {
@@ -23,6 +27,5 @@ class CornerObservingLayer: CALayer {
             cornerDelegate?.layerCornerMaskDidChange(to: maskedCorners)
         }
     }
-    
     
 }

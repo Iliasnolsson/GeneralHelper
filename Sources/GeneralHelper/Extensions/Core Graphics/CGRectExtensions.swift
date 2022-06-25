@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-extension Array where Element == CGRect {
+public extension Array where Element == CGRect {
     
     func boundingRect() -> CGRect? {
         var boundingRect = CGRect()
@@ -40,7 +40,7 @@ extension Array where Element == CGRect {
 }
 
 
-extension CGRect {
+public extension CGRect {
     
     /// Otherwise not avaliable points on a rectangle
     func points(withTransform transform: CGAffineTransform?) -> [Part : CGPoint] {
@@ -100,7 +100,7 @@ extension CGRect {
     
 }
 
-enum Part: String {
+public enum Part: String {
     case topLeft
     case middleTop
     case middleBottom

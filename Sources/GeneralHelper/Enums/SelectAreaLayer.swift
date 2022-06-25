@@ -7,19 +7,19 @@
 
 import QuartzCore
 
-class SelectAreaLayer: CALayer {
+public class SelectAreaLayer: CALayer {
     
-    private(set) var area: CGRect = .zero
+    public private(set) var area: CGRect = .zero
     
     private var areaLayer = CALayer()
     private var initalLocation = CGPoint()
     
-    override init() {
+    override public init() {
         super.init()
         setup()
     }
     
-    override init(layer: Any) {
+    override public init(layer: Any) {
         super.init(layer: layer)
         setup()
     }
@@ -34,7 +34,10 @@ class SelectAreaLayer: CALayer {
         addSublayer(areaLayer)
     }
     
+}
 
+public extension SelectAreaLayer {
+    
     func panningWillBegin(at point: CGPoint) {
         initalLocation = point
         CALayer.stopAnimationsIn {

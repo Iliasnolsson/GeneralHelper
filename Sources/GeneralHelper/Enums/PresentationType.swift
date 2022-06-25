@@ -7,10 +7,12 @@
 
 import Foundation
 
-enum PresentationType {
-    
+public enum PresentationType {
     case present
     case dismiss
+}
+
+public extension PresentationType {
     
     var isPresenting: Bool {
         return self == .present

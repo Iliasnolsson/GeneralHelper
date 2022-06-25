@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension CGAffineTransform {
+public extension CGAffineTransform {
     
     init(scaleXY: CGFloat) {
         self.init(scaleX: scaleXY, y: scaleXY)
@@ -60,7 +60,7 @@ extension CGAffineTransform {
         return CATransform3D.init(self).rotation
     }
     
-    public init(position: CGPoint, rotation: CGFloat, scale: CGSize)  {
+    init(position: CGPoint, rotation: CGFloat, scale: CGSize)  {
         var affine: CGAffineTransform = .identity
         affine = CGAffineTransform(translationX: position.x, y: position.y)
         affine = affine.rotated(by: rotation)
@@ -80,7 +80,7 @@ extension CGAffineTransform {
         return self.translatedBy(x: point.x, y: point.y)
     }
     
-    public init(position: CGPoint, rotation: CGFloat, scale: CGSize, anchor: CGPoint) {
+    init(position: CGPoint, rotation: CGFloat, scale: CGSize, anchor: CGPoint) {
         self = CGAffineTransform(position: position, rotation: rotation, scale: scale).translatedBy(x: -anchor.x, y: -anchor.y)
     }
     

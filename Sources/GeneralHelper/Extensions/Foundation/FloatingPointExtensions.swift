@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array where Element: FloatingPoint {
+public extension Array where Element: FloatingPoint {
     
     /// - Returns: Elements in array as percentages relative to max element in array
     func percentagesRelativeToMax() -> [Element] {

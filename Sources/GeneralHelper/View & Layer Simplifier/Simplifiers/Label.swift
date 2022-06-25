@@ -7,18 +7,11 @@
 
 import UIKit
 
-class Label: UILabel {
+public class Label: UILabel {
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func setTextColor(_ newColor: UIColor?, animated: Bool, duration: Double) {
-        if !animated {textColor = newColor; return}
-        UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve) {
-            self.textColor = newColor
-        }
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +22,14 @@ class Label: UILabel {
 
 
 // MARK: Statics
-extension Label {
+public extension Label {
+    
+    func setTextColor(_ newColor: UIColor?, animated: Bool, duration: Double) {
+        if !animated {textColor = newColor; return}
+        UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve) {
+            self.textColor = newColor
+        }
+    }
     
     static func spacing(forFraction fraction: CGFloat, pointSize: CGFloat) -> CGFloat {
         let pointSizeFraction = pointSize * 0.06

@@ -7,11 +7,15 @@
 
 import Foundation
 
-enum Placement {
+public enum Placement {
     case over
     case under
     case left
     case right
+    
+}
+
+public extension Placement {
     
     var opposite: Side {
         switch self {

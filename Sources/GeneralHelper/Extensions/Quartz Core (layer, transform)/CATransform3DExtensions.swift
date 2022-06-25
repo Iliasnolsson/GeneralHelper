@@ -8,7 +8,7 @@
 import Foundation
 import QuartzCore
 
-extension CATransform3D {
+public extension CATransform3D {
     
     init(_ affine: CGAffineTransform) {
         self = CATransform3DMakeAffineTransform(affine)

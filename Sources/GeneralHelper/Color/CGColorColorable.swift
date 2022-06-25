@@ -9,12 +9,12 @@ import UIKit
 
 extension CGColor: Color {
     
-    static func initalize(rgba: RGBA) -> CGColor {
+    public static func initalize(rgba: RGBA) -> CGColor {
         return CGColor.initalize(r: rgba.r, g: rgba.g, b: rgba.b, a: rgba.a, colorSpaceIdentifier: CGColorSpace.sRGB)
     }
     
     
-    func rgba() -> RGBA {
+    public func rgba() -> RGBA {
         return UIColor(cgColor: self).rgba()
     }
     

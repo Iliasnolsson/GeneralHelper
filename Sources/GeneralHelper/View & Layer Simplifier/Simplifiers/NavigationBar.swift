@@ -7,16 +7,16 @@
 
 import UIKit
 
-class NavigationBar: UINavigationBar {
+public class NavigationBar: UINavigationBar {
     
-    var heightAddon: CGFloat = 0
+    public var heightAddon: CGFloat = 0
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    override public func sizeThatFits(_ size: CGSize) -> CGSize {
         if heightAddon == 0 {return super.sizeThatFits(size)}
         return .init(width: super.sizeThatFits(size).width, height: getDefualtHeight() + heightAddon)
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         if heightAddon == 0 {return}
         let height = getDefualtHeight() + heightAddon
@@ -34,7 +34,7 @@ class NavigationBar: UINavigationBar {
         }
     }
 
-    func getDefualtHeight() -> CGFloat {
+    public func getDefualtHeight() -> CGFloat {
         return UINavigationController().navigationBar.frame.size.height + safeAreaInsets.top
     }
     

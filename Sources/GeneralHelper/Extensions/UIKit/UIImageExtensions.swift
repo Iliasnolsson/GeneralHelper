@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     static func systemImage(name: String, color: UIColor, pointSize: CGFloat, weight: UIImage.SymbolWeight = .medium, scale: SymbolScale = .medium) -> UIImage? {
         let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale)

@@ -8,19 +8,19 @@
 import Foundation
 import CoreGraphics
 
-extension Int {
+public extension Int {
   var cgFloat: CGFloat {
     return CGFloat(self)
   }
 }
 
-extension Double {
+public extension Double {
   var cgFloat: CGFloat {
     return CGFloat(self)
   }
 }
 
-extension CGFloat {
+public extension CGFloat {
   
   
   /**
@@ -75,7 +75,7 @@ extension CGFloat {
   
 }
 
-extension Double {
+public extension Double {
   
   /**
    Interpolates the receiver to the given number by Amount.
@@ -116,7 +116,7 @@ extension Double {
   
 }
 
-extension CGRect {
+public extension CGRect {
   
   /// Initializes a new CGRect with a center point and size.
   init(center: CGPoint, size: CGSize) {
@@ -213,7 +213,7 @@ extension CGRect {
 infix operator +|
 infix operator +-
 
-extension CGSize {
+public extension CGSize {
   
   /**
    Interpolates the receiver to the given size by Amount.
@@ -285,7 +285,7 @@ extension CGSize {
 }
 
 /// A struct that defines a line segment with two CGPoints
-struct CGLine {
+public struct CGLine {
   
   /// The Start of the line segment.
   var start: CGPoint
@@ -344,7 +344,7 @@ struct CGLine {
   
 }
 
-extension CGPoint {
+public extension CGPoint {
   
   /// Returns the distance between the receiver and the given point.
   func distanceTo(_ a: CGPoint) -> CGFloat {

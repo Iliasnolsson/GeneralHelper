@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension ClosedRange {
+public extension ClosedRange {
     
     static func add(_ range: ClosedRange<Bound>, with otherRange: ClosedRange<Bound>) -> ClosedRange<Bound> {
         return Swift.min(range.lowerBound, otherRange.lowerBound)...Swift.max(range.upperBound, otherRange.upperBound)

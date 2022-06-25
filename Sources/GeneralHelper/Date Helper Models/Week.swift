@@ -7,15 +7,40 @@
 
 import Foundation
 
-struct Week: Codable, Equatable, Comparable, Hashable {
-    let year: Int
-    let weekOfYear: Int
+public struct Week: Codable, Equatable, Comparable, Hashable {
+    public let year: Int
+    public let weekOfYear: Int
 
-    init(year: Int, weekOfYear: Int) {
+    public init(year: Int, weekOfYear: Int) {
         self.year = year
         self.weekOfYear = weekOfYear
     }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(year)
+        hasher.combine(weekOfYear)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case year = "y"
+        case weekOfMonth = "w"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        year = try container.decode(Int.self, forKey: .year)
+        weekOfYear = try container.decode(Int.self, forKey: .weekOfMonth)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(year, forKey: .year)
+        try container.encode(weekOfYear, forKey: .weekOfMonth)
+    }
+}
 
+public extension Week {
+    
     func nextWeek() -> Week {
         let numberOfWeeksForYear = Date.numberOfWeeks(ofYear: year)
         if weekOfYear == numberOfWeeksForYear {
@@ -47,25 +72,4 @@ struct Week: Codable, Equatable, Comparable, Hashable {
         return lhs.year == rhs.year && lhs.weekOfYear == rhs.weekOfYear
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(year)
-        hasher.combine(weekOfYear)
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case year = "y"
-        case weekOfMonth = "w"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        year = try container.decode(Int.self, forKey: .year)
-        weekOfYear = try container.decode(Int.self, forKey: .weekOfMonth)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(year, forKey: .year)
-        try container.encode(weekOfYear, forKey: .weekOfMonth)
-    }
 }

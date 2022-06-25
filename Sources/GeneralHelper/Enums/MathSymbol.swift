@@ -7,11 +7,30 @@
 
 import Foundation
 
-enum MathSymbol {
+public enum MathSymbol {
     case divide
     case multiply
     case subtract
     case add
+    
+    public init?(character: Character) {
+        switch character {
+        case "÷":
+            self = .divide
+        case "×":
+            self = .multiply
+        case "−":
+            self = .subtract
+        case "+":
+            self = .add
+        default:
+            return nil
+        }
+    }
+    
+}
+
+public extension MathSymbol {
     
     var characterString: String {
         return String(character)
@@ -40,21 +59,6 @@ enum MathSymbol {
             return "subtract"
         case .add:
             return "addition"
-        }
-    }
-    
-    init?(character: Character) {
-        switch character {
-        case "÷":
-            self = .divide
-        case "×":
-            self = .multiply
-        case "−":
-            self = .subtract
-        case "+":
-            self = .add
-        default:
-            return nil
         }
     }
     

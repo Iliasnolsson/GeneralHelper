@@ -7,9 +7,12 @@
 
 import UIKit
 
-enum ColorComponent: String, Codable {
+public enum ColorComponent: String, Codable {
     case fill = "f"
     case stroke = "s"
+}
+
+public extension ColorComponent {
     
     var image: UIImage? {
         return .init(named: self == .fill ? "Component.Fill" : "Component.Stroke")
@@ -18,4 +21,5 @@ enum ColorComponent: String, Codable {
     var opposite: ColorComponent {
         return self == .fill ? .stroke : .fill
     }
+    
 }

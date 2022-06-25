@@ -9,11 +9,11 @@ import UIKit
 
 extension UIColor: Color {
     
-    static func initalize(rgba: RGBA) -> UIColor {
+    public static func initalize(rgba: RGBA) -> UIColor {
         return UIColor(r: rgba.r, g: rgba.g, b: rgba.b, a: rgba.a, colorSpaceIdentifier: CGColorSpace.sRGB)
     }
     
-    func rgba() -> RGBA {
+    public func rgba() -> RGBA {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -22,11 +22,11 @@ extension UIColor: Color {
         return .init(r: red, g: green, b: blue, a: alpha)
     }
     
-    func uiColor() -> UIColor {
+    public func uiColor() -> UIColor {
         return self
     }
     
-    func cgColor() -> CGColor {
+    public func cgColor() -> CGColor {
         return self.cgColor
     }
     

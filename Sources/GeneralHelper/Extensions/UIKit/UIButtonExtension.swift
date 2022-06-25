@@ -8,7 +8,7 @@
 import UIKit
 
 @available(iOS 15, *)
-extension UIButton {
+public extension UIButton {
     
     var cornerStyle: UIButton.Configuration.CornerStyle? {
         get {configuration?.cornerStyle}

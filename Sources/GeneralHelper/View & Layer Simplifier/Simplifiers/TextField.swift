@@ -7,14 +7,14 @@
 
 import UIKit
 
-class TextField: UITextField, UIGestureRecognizerDelegate {
+public class TextField: UITextField, UIGestureRecognizerDelegate {
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override var selectedTextRange: UITextRange? {
+    override public var selectedTextRange: UITextRange? {
         get {super.selectedTextRange}
         set {
             if isTapImproved {
@@ -33,8 +33,8 @@ class TextField: UITextField, UIGestureRecognizerDelegate {
     }
     
     
-    var onDoubleTapped: ((_ label: UITextField) -> Void)?
-    var onCharacterTapped: ((_ label: UITextField, _ characterIndex: Int) -> Void)?
+    public var onDoubleTapped: ((_ label: UITextField) -> Void)?
+    public var onCharacterTapped: ((_ label: UITextField, _ characterIndex: Int) -> Void)?
     
     private var tapGesture = UITapGestureRecognizer()
     private var tapIntervalSince: Double = Date.timeIntervalSinceReferenceDate
@@ -43,14 +43,14 @@ class TextField: UITextField, UIGestureRecognizerDelegate {
     private var doubleTapIntervalSince: Double = Date.timeIntervalSinceReferenceDate
     private var isTapImproved: Bool = false
     
-    func improveTap() {
+    public func improveTap() {
         isTapImproved = true
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
         tapGesture.delegate = self
         addGestureRecognizer(tapGesture)
     }
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if isTapImproved {
             if gestureRecognizer == tapGesture {
                 return true
@@ -67,7 +67,7 @@ class TextField: UITextField, UIGestureRecognizerDelegate {
         return true
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if isTapImproved {
             if gestureRecognizer as? UILongPressGestureRecognizer != nil && otherGestureRecognizer == tapGesture {
                 return true
@@ -79,11 +79,11 @@ class TextField: UITextField, UIGestureRecognizerDelegate {
         return false
     }
     
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    override public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return isTapImproved ? false : super.canPerformAction(action, withSender: sender)
     }
     
-    override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
+    override public func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
         if isTapImproved {
             if range.start == range.end {
                 return super.selectionRects(for: range)
@@ -95,7 +95,7 @@ class TextField: UITextField, UIGestureRecognizerDelegate {
         return super.selectionRects(for: range)
     }
 
-    override func caretRect(for position: UITextPosition) -> CGRect {
+    override public func caretRect(for position: UITextPosition) -> CGRect {
         if isTapImproved {
             if let range = selectedTextRange {
                 if range.start == range.end {

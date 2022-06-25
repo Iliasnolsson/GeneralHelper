@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Color: ColorGettable {
+public protocol Color: ColorGettable {
     associatedtype ValueType = Self
     
     static func initalize(rgba: RGBA) -> ValueType
@@ -16,7 +16,7 @@ protocol Color: ColorGettable {
     
 }
 
-extension Color {
+public extension Color {
     
     static var black: ValueType {Self.initalize(rgba: RGBA(gray: 0))}
     static var white: ValueType {Self.initalize(rgba: RGBA(gray: 1))}

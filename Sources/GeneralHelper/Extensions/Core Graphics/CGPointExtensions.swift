@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-extension CGPoint {
+public extension CGPoint {
     
     func rotate(around: CGPoint, byDegrees: CGFloat) -> CGPoint {
         return rotate(around: around, byAngle: byDegrees)

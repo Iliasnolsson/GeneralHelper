@@ -7,14 +7,14 @@
 
 import UIKit
 
-class StackView: UIStackView {
+public class StackView: UIStackView {
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func spacingMultiply(by multiplyer: CGFloat, after arrangedSubview: UIView) {
+    public func spacingMultiply(by multiplyer: CGFloat, after arrangedSubview: UIView) {
         setCustomSpacing(spacing * multiplyer, after: arrangedSubview)
     }
     

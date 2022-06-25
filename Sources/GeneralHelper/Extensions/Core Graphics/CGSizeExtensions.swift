@@ -7,7 +7,7 @@
 
 import CoreGraphics
 
-extension CGSize {
+public extension CGSize {
     
     init(_ point: CGPoint) {
         self.init(width: point.x, height: point.y)

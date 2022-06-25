@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ColorGettable {
+public protocol ColorGettable {
     
     func uiColor() -> UIColor
     func cgColor() -> CGColor

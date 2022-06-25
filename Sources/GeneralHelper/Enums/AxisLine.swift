@@ -7,12 +7,12 @@
 
 import QuartzCore
 
-struct AxisLine: Equatable {
+public struct AxisLine: Equatable {
     let offset: CGFloat
     let axis: Axis
 }
 
-extension CGRect {
+public extension CGRect {
     
     func lines() -> [AxisLine] {
         return lines(onAxis: .horizontal) + lines(onAxis: .vertical)

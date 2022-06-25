@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat, colorSpaceIdentifier: CFString = CGColorSpace.sRGB) {
         let colorSpace = CGColorSpace(name: colorSpaceIdentifier)!
@@ -28,12 +28,6 @@ extension UIColor {
         self.init { trait in
             return trait.userInterfaceStyle == .light ? light.uiColor() : (dark ?? light).uiColor()
         }
-    }
-    
-    public var lottieColorValue: RGBA {
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        getRed(&r, green: &g, blue: &b, alpha: &a)
-        return RGBA(r: Double(r), g: Double(g), b: Double(b), a: Double(a))
     }
     
     static var appTintColor: UIColor {.systemBlue}

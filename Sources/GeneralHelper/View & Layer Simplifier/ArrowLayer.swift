@@ -7,26 +7,26 @@
 
 import QuartzCore
 
-class ArrowLayer: CALayer {
+public class ArrowLayer: CALayer {
     
     private var _curve: CubicCurve?
-    var curve: CubicCurve? {
+    public var curve: CubicCurve? {
         get {_curve}
         set {setCurve(newValue)}
     }
     
     private var _arrowHeight: CGFloat = 23
-    var arrowHeight: CGFloat {
+    public var arrowHeight: CGFloat {
         get {_arrowHeight}
         set {_arrowHeight = newValue; setCurve(curve)}
     }
     
-    var tailWidth: CGFloat {
+    public var tailWidth: CGFloat {
         get {tailLayer.lineWidth}
         set {tailLayer.lineWidth = newValue}
     }
     
-    var color: CGColor? {
+    public var color: CGColor? {
         get {tailLayer.strokeColor}
         set {
             tailLayer.strokeColor = newValue
@@ -34,10 +34,10 @@ class ArrowLayer: CALayer {
         }
     }
     
-    let tailLayer = CAShapeLayer()
-    let arrowLayer = CAShapeLayer()
+    public let tailLayer = CAShapeLayer()
+    public let arrowLayer = CAShapeLayer()
     
-    override init() {
+    public override init() {
         super.init()
         tailLayer.fillColor = CGColor(gray: 0, alpha: 0)
         color = .init(gray: 0, alpha: 1)
@@ -48,7 +48,7 @@ class ArrowLayer: CALayer {
         addSublayer(arrowLayer)
     }
     
-    func setCurve(_ newCurve: CubicCurve?, animated: Bool = false, duration: Double = 0.3, option: CAMediaTimingFunction = .easeOutExpo) {
+    public func setCurve(_ newCurve: CubicCurve?, animated: Bool = false, duration: Double = 0.3, option: CAMediaTimingFunction = .easeOutExpo) {
         let duration = animated ? duration : 0
         _curve = newCurve
         if let newCurve = newCurve {

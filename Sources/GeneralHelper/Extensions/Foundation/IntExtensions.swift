@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     
     func factors() -> [Int] {
         let sqrtn = Int(Double(self).squareRoot())
@@ -32,7 +32,7 @@ extension Int {
     
 }
 
-extension Array where Element == Int {
+public extension Array where Element == Int {
     
     func delete(atTreePath deletionPath: Self) -> [Int] {
         if deletionPath.isEmpty {return self}

@@ -7,10 +7,14 @@
 
 import Foundation
 
-enum SideVertical {
+public enum SideVertical {
     case top
     case bottom
- 
+
+}
+
+public extension SideVertical {
+    
     var opposite: Side {
         switch self {
         case .top:

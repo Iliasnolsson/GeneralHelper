@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-extension CALayer {
+public extension CALayer {
     
     var isAnimatable: Bool {
         get { delegate == nil }
@@ -137,7 +137,7 @@ extension CALayer {
     
 }
 
-extension CALayer {
+public extension CALayer {
     
     var scaleX: CGFloat {
         return self.value(forKeyPath: "transform.scale.x") as! CGFloat

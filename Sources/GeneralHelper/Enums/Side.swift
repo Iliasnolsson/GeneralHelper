@@ -7,11 +7,15 @@
 
 import QuartzCore
 
-enum Side {
+public enum Side {
     case top
     case bottom
     case left
     case right
+    
+}
+
+public extension Side {
     
     var opposite: Side {
         switch self {
@@ -56,7 +60,7 @@ enum Side {
     
 }
 
-extension CGRect {
+public extension CGRect {
     
     func float(forSide side: Side) -> CGFloat {
         switch side {

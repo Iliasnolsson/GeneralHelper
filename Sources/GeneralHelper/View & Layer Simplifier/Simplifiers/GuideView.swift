@@ -7,9 +7,9 @@
 
 import UIKit
 
-class GuideView: View {
+public class GuideView: View {
     
-    override init() {
+    override public init() {
         super.init()
         isHidden = true
         backgroundColor = .red

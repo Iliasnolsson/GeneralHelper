@@ -7,19 +7,39 @@
 
 import Foundation
 
-struct Time: Codable, Equatable, Comparable {
-    let hour: Int
-    let minute: Int
+public struct Time: Codable, Equatable, Comparable {
+    public let hour: Int
+    public let minute: Int
     
-    init(hour: Int, minute: Int) {
+    public init(hour: Int, minute: Int) {
         self.hour = hour
         self.minute = minute
     }
     
-    init(minutesSinceDayBegan: Int) {
+    public init(minutesSinceDayBegan: Int) {
         hour = Int((minutesSinceDayBegan.cgFloat / 60).rounded(.down))
         minute = minutesSinceDayBegan - (hour * 60)
     }
+    
+    private enum CodingKeys: String, CodingKey {
+        case hour = "h"
+        case minute = "m"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        hour = try container.decode(Int.self, forKey: .hour)
+        minute = try container.decode(Int.self, forKey: .minute)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(hour, forKey: .hour)
+        try container.encode(minute, forKey: .minute)
+    }
+}
+
+public extension Time {
     
     func toString() -> String {
         let hourString = hour >= 10 ? hour.description : "0\(hour.description)"
@@ -71,20 +91,4 @@ struct Time: Codable, Equatable, Comparable {
         return .init(hour: newHour, minute: newMinute)
     }
     
-    private enum CodingKeys: String, CodingKey {
-        case hour = "h"
-        case minute = "m"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        hour = try container.decode(Int.self, forKey: .hour)
-        minute = try container.decode(Int.self, forKey: .minute)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(hour, forKey: .hour)
-        try container.encode(minute, forKey: .minute)
-    }
 }
