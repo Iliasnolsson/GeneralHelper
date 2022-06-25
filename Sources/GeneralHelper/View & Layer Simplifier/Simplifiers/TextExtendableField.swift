@@ -21,7 +21,7 @@ public class TextExtendableField: UITextField, UITextFieldDelegate {
         }
     }
     
-    private public var _textExtension: String = ""
+    private var _textExtension: String = ""
     
     public init() {
         super.init(frame: .zero)
