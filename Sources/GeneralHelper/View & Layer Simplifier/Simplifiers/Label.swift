@@ -7,14 +7,14 @@
 
 import UIKit
 
-public class Label: UILabel {
+open class Label: UILabel {
     
     public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

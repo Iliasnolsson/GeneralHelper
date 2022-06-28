@@ -7,14 +7,14 @@
 
 import UIKit
 
-public class ImageView: UIImageView {
+open class ImageView: UIImageView {
     
     public init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

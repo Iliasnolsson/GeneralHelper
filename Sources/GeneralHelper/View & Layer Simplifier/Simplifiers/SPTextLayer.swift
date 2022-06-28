@@ -7,7 +7,7 @@
 
 import QuartzCore
 
-public class SPTextLayer : CATextLayer {
+open class SPTextLayer : CATextLayer {
     
     public var alignmentModeVertical: VerticalAlignmentMode = .top
     

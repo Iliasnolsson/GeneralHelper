@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class GuideView: View {
+open class GuideView: View {
     
     override public init() {
         super.init()
@@ -15,7 +15,7 @@ public class GuideView: View {
         backgroundColor = .red
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

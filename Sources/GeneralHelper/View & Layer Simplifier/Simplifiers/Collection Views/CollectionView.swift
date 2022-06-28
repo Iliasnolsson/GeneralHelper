@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class CollectionView: UICollectionView {
+open class CollectionView: UICollectionView {
     
     public weak var gestureDelegate: ScrollViewGestureDelegate?
     
@@ -21,7 +21,7 @@ public class CollectionView: UICollectionView {
         self.init(layout: UICollectionViewFlowLayout())
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

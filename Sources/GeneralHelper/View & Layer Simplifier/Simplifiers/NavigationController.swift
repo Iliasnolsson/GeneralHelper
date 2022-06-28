@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class NavigationController: UINavigationController {
+open class NavigationController: UINavigationController {
     
     public var barHeightAddon: CGFloat = 0 {
         didSet {

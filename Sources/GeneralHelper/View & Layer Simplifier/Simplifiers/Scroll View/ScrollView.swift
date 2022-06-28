@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ScrollView: UIScrollView {
+open class ScrollView: UIScrollView {
     
     public weak var gestureDelegate: ScrollViewGestureDelegate?
     
@@ -23,7 +23,7 @@ public class ScrollView: UIScrollView {
         return super.gestureRecognizerShouldBegin(gestureRecognizer)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class Button: UIButton {
+open class Button: UIButton {
     
     private var tintColorForStates: (isEnabledColor: UIColor, isDisabledColor: UIColor)?
     
@@ -82,7 +82,7 @@ public class Button: UIButton {
     }
     
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

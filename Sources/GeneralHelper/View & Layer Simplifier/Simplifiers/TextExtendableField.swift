@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class TextExtendableField: UITextField, UITextFieldDelegate {
+open class TextExtendableField: UITextField, UITextFieldDelegate {
     
     override public  var text: String? {
         get {return _textExtension.length > 0 ? super.text : String(super.text?.dropLast(_textExtension.length) ?? .init())}
@@ -28,7 +28,7 @@ public class TextExtendableField: UITextField, UITextFieldDelegate {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class AutoCollectionView: CollectionView {
+open class AutoCollectionView: CollectionView {
     
     public private(set) var register = [String]()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class HitView: UIView {
+open class HitView: UIView {
     
     public weak var delegate: HitViewDelegate?
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class NavigationBar: UINavigationBar {
+open class NavigationBar: UINavigationBar {
     
     public var heightAddon: CGFloat = 0
     

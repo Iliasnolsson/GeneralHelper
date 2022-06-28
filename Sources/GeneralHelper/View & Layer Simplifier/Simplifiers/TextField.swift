@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class TextField: UITextField, UIGestureRecognizerDelegate {
+open class TextField: UITextField, UIGestureRecognizerDelegate {
     
     public init() {
         super.init(frame: .zero)
@@ -198,7 +198,7 @@ public class TextField: UITextField, UIGestureRecognizerDelegate {
         onCharacterTapped?(self, characterTapped)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
