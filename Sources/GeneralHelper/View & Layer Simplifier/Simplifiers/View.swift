@@ -9,8 +9,11 @@ import UIKit
 
 open class View: UIView {
     
-    public var corners: Corners? {_corners}
-    private var _corners: Corners? = nil
+    public var corners: Corners? {
+        didSet {
+            reloadCorners()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,15 +38,6 @@ open class View: UIView {
 
 // MARK: Corners
 public extension View {
-    
-    func setCorners(_ value: CGFloat, valueType: Corners.ValueType) {
-        setCorners(.init(value, valueType: valueType))
-    }
-    
-    func setCorners(_ newCorners: Corners?) {
-        _corners = newCorners
-        reloadCorners()
-    }
     
     private func reloadCorners() {
         if let corners = corners {
