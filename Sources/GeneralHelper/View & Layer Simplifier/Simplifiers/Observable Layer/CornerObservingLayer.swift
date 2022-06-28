@@ -13,11 +13,10 @@ open class CornerObservingLayer: CALayer {
     
 }
 
-open extension CornerObservingLayer {
+public extension CornerObservingLayer {
     
     override var cornerRadius: CGFloat {
         didSet {
-            
             cornerDelegate?.layerCornerRadiusDidChange(to: cornerRadius)
         }
     }
