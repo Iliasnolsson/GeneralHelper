@@ -93,6 +93,13 @@ public extension View {
         /// Default is constant, How the corner radius value should be interperted
         public var valueType: ValueType
         
+        public static var rounded: Corners = .init(0.5, valueType: .percentageOfSizeMin)
+        public static var almostRounded: Corners = .init(0.975, valueType: .percentageOfSizeMin)
+        
+        public static var small: Corners = .init(2, valueType: .constant)
+        public static var medium: Corners = .init(6, valueType: .constant)
+        public static var large: Corners = .init(12, valueType: .constant)
+        
         public init(_ value: CGFloat, valueType: ValueType = .constant) {
             self.value = value
             self.valueType = valueType
@@ -125,13 +132,6 @@ public extension View {
                 return value * min(size.width, size.height)
             }
         }
-        
-        static var rounded: Corners = .init(0.5, valueType: .percentageOfSizeMin)
-        static var almostRounded: Corners = .init(0.975, valueType: .percentageOfSizeMin)
-        
-        static var small: Corners = .init(2, valueType: .constant)
-        static var medium: Corners = .init(6, valueType: .constant)
-        static var large: Corners = .init(12, valueType: .constant)
     }
     
 }
