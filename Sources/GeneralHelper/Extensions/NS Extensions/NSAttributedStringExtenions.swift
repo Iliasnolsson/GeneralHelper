@@ -77,3 +77,17 @@ public extension NSAttributedString {
     }
     
 }
+
+extension NSMutableAttributedString {
+    
+    func addInterlineSpacing(spacingValue: CGFloat = 2) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = spacingValue
+        addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: self.length
+        ))
+    }
+    
+}

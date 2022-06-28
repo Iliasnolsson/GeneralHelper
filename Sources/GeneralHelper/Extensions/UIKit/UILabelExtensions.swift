@@ -87,7 +87,22 @@ public extension UILabel {
         attributes[.kern] = Label.spacing(forFraction: spacingFraction, pointSize: (attributes[.font] as? UIFont)?.pointSize ?? font.pointSize)
         return attributes
     }
- 
     
-    
+    func addInterlineSpacing(spacingValue: CGFloat = 2) {
+        let attributedString = {() -> NSMutableAttributedString in
+            if let attributedText = attributedText {
+                return NSMutableAttributedString(attributedString: attributedText)
+            }
+            return NSMutableAttributedString(string: text ?? "")
+        }()
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = spacingValue
+        attributedString.addAttribute(
+            .paragraphStyle,
+            value: paragraphStyle,
+            range: NSRange(location: 0, length: attributedString.length
+        ))
+        attributedText = attributedString
+    }
+
 }
