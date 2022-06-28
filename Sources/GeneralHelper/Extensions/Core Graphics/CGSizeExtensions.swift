@@ -27,4 +27,12 @@ public extension CGSize {
         return targetRatio > fromRatio ? targetSize.height / height : targetSize.width / width;
     }
     
+    func max() -> CGFloat {
+        return Swift.max(width, height)
+    }
+    
+    func min() -> CGFloat {
+        return Swift.min(width, height)
+    }
+    
 }

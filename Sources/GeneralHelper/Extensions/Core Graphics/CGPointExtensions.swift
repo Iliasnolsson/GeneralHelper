@@ -109,5 +109,13 @@ public extension CGPoint {
         return .init(width: x, height: y)
     }
     
+    func max() -> CGFloat {
+        return Swift.max(x, y)
+    }
+    
+    func min() -> CGFloat {
+        return Swift.min(x, y)
+    }
+    
 }
 
