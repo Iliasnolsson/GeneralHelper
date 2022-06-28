@@ -78,15 +78,38 @@ public extension NSAttributedString {
     
 }
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     
-    func addInterlineSpacing(spacingValue: CGFloat = 2) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = spacingValue
+    func setLineSpacing(_ spacing: CGFloat = 2) {
+        if length == 0 {return}
+        let paragraphStyle = {() -> NSMutableParagraphStyle in
+            let result = NSMutableParagraphStyle()
+            if let existingParagraphStyle = attributes(at: 0, effectiveRange: nil)[.paragraphStyle] as? NSParagraphStyle {
+    
+                result.lineBreakMode = existingParagraphStyle.lineBreakMode
+                result.paragraphSpacing = existingParagraphStyle.paragraphSpacing
+                result.alignment = existingParagraphStyle.alignment
+                result.allowsDefaultTighteningForTruncation = existingParagraphStyle.allowsDefaultTighteningForTruncation
+                result.firstLineHeadIndent = existingParagraphStyle.firstLineHeadIndent
+                result.lineBreakStrategy = existingParagraphStyle.lineBreakStrategy
+                result.maximumLineHeight = existingParagraphStyle.maximumLineHeight
+                result.minimumLineHeight = existingParagraphStyle.minimumLineHeight
+                if #available(iOS 15.0, *) {
+                    result.usesDefaultHyphenation = existingParagraphStyle.usesDefaultHyphenation
+                }
+                result.textLists = existingParagraphStyle.textLists
+                result.headIndent = existingParagraphStyle.headIndent
+                result.defaultTabInterval = existingParagraphStyle.defaultTabInterval
+                result.paragraphSpacingBefore = existingParagraphStyle.paragraphSpacingBefore
+            }
+            
+            return result
+        }()
+        paragraphStyle.lineSpacing = spacing
         addAttribute(
             .paragraphStyle,
             value: paragraphStyle,
-            range: NSRange(location: 0, length: self.length
+            range: NSRange(location: 0, length: length
         ))
     }
     

@@ -88,20 +88,14 @@ public extension UILabel {
         return attributes
     }
     
-    func addInterlineSpacing(spacingValue: CGFloat = 2) {
+    func setLineSpacing(_ spacing: CGFloat = 2) {
         let attributedString = {() -> NSMutableAttributedString in
             if let attributedText = attributedText {
                 return NSMutableAttributedString(attributedString: attributedText)
             }
             return NSMutableAttributedString(string: text ?? "")
         }()
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = spacingValue
-        attributedString.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributedString.length
-        ))
+        attributedString.setLineSpacing(spacing)
         attributedText = attributedString
     }
 
