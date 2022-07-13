@@ -51,7 +51,7 @@ public extension UIFont {
 
 public extension UIFont {
     
-    static func rounded(ofSize size: UIFont.TextStyle, weight: UIFont.Weight = .bold, maxPointSize: CGFloat? = nil) -> UIFont {
+    static func rounded(ofSize size: UIFont.TextStyle, weight: UIFont.Weight = .regular, maxPointSize: CGFloat? = nil) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: 10, weight: weight)
         if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
             return UIFont(descriptor: descriptor, size: 10).with(style: size, maxPointSize: maxPointSize)
@@ -60,7 +60,7 @@ public extension UIFont {
         }
     }
 
-    static func display(ofSize size: UIFont.TextStyle, weight: Weight = .medium, maxPointSize: CGFloat? = nil) -> UIFont {
+    static func display(ofSize size: UIFont.TextStyle, weight: Weight = .regular, maxPointSize: CGFloat? = nil) -> UIFont {
         return UIFont.systemFont(ofSize: 10, weight: weight).with(style: size, maxPointSize: maxPointSize)
     }
     
