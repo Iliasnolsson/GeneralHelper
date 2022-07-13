@@ -1,0 +1,19 @@
+//
+//  File.swift
+//  
+//
+//  Created by Ilias Nikolaidis Olsson on 2022-07-13.
+//
+
+import UIKit
+
+enum ColorTheme: Int {
+    case dark = 10
+    case light = 20
+    
+    
+    static func from(_ interfaceStyle: UIUserInterfaceStyle) -> ColorTheme {
+        return interfaceStyle == .dark ? .dark : .light
+    }
+    
+}
