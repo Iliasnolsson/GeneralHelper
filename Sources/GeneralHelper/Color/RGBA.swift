@@ -14,21 +14,21 @@ public struct RGBA: Color {
     public var b: CGFloat
     public var a: CGFloat
     
-    init() {
+    public init() {
         r = 0
         g = 0
         b = 0
         a = 0
     }
     
-    init(gray: CGFloat, a: CGFloat = 1) {
+    public init(gray: CGFloat, a: CGFloat = 1) {
         r = gray
         g = gray
         b = gray
         self.a = a
     }
     
-    init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
+    public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
         self.r = r
         self.g = g
         self.b = b
@@ -42,7 +42,7 @@ public struct RGBA: Color {
         self.a = a / denominator.value
     }
     
-    init(r255: CGFloat, g255: CGFloat, b255: CGFloat, a1: CGFloat = 1) {
+    public init(r255: CGFloat, g255: CGFloat, b255: CGFloat, a1: CGFloat = 1) {
         self.init(r: r255/255, g: g255/255, b: b255/255, a: a1)
     }
     
