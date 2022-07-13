@@ -11,12 +11,39 @@ public struct DynamicColor {
     
     private var colors = [ColorTheme : any Color]()
     
-    public init(_ colors: (theme: ColorTheme, color: any Color)...) {
-        for (theme, color) in colors {
-            self.colors[theme] = color
+    public init(_ colors: Item...) {
+        for item in colors {
+            self.colors[item.colorTheme] = item.color
         }
     }
-
+    
+    public struct Item {
+        
+        fileprivate let colorTheme: ColorTheme
+        fileprivate let color: any Color
+        
+        private init(colorTheme: ColorTheme, color: any Color) {
+            self.colorTheme = colorTheme
+            self.color = color
+        }
+        
+        public static func dark(_ color: any Color) -> Item {
+            return .init(colorTheme: .dark, color: color)
+        }
+        
+        public static func dark(_ present: ColorPresent) -> Item {
+            return .init(colorTheme: .dark, color: present.rgba())
+        }
+        
+        public static func light(_ color: any Color) -> Item {
+            return .init(colorTheme: .light, color: color)
+        }
+        
+        public static func light(_ present: ColorPresent) -> Item {
+            return .init(colorTheme: .light, color: present.rgba())
+        }
+    }
+    
 }
 
 public extension DynamicColor {
