@@ -9,7 +9,12 @@ Color (Protocol)
 HSBA 
 RGBA
 ```
-
+Simplify support dark/light mode:
+``` swift
+static var backgroundColor: DynamicColor = .init(
+    .dark(RGBA(r255: 44, g255: 44, b255: 46)),
+    .light(.white))
+```
 
 ## Date 
 Big help for creating calendar apps, easier to move between weeks & days. 
@@ -34,6 +39,21 @@ MathSymbol
 SpecialMathSymbol
 ... and a bunch more
 ```
+
+## Extensions
+Easier creation of scalable fonts & SF Fonts: 
+- UIFont.rounded for SF Pro Rounded, parameters for weight exists
+- UIFont.display for SF Pro Rounded, parameters for weight exists
+
+```swift
+label.font = .display(ofSize: .largeTitle, weight: .bold)
+label.font = UIFont(name: "Helvetica", size: 20).with(style: .caption1, maxPointSize: 15)
+        
+label.font = .rounded(ofSize: .heading, maxPointSize: 20)
+label.font = .rounded(ofSize: 20, weight: .black)
+```
+
+
 
 
 ## Views
