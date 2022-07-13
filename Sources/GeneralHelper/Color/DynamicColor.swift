@@ -7,15 +7,19 @@
 
 import UIKit
 
-struct DynamicColor {
+public struct DynamicColor {
     
     private var colors = [ColorTheme : any Color]()
     
-    init(_ colors: (theme: ColorTheme, color: any Color)...) {
+    public init(_ colors: (theme: ColorTheme, color: any Color)...) {
         for (theme, color) in colors {
             self.colors[theme] = color
         }
     }
+
+}
+
+public extension DynamicColor {
     
     func get(for theme: ColorTheme) -> (any Color)? {
         return colors[theme]

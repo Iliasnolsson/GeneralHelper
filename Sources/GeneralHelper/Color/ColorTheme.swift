@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum ColorTheme: Int {
+public enum ColorTheme: Int {
     case dark = 10
     case light = 20
     
     
-    static func from(_ interfaceStyle: UIUserInterfaceStyle) -> ColorTheme {
+    public static func from(_ interfaceStyle: UIUserInterfaceStyle) -> ColorTheme {
         return interfaceStyle == .dark ? .dark : .light
     }
     
