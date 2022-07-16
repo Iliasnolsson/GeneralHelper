@@ -18,7 +18,7 @@ public extension Array where Element == CGFloat {
     
 }
 
-extension CGFloat {
+public extension CGFloat {
     
     func inverseScale() -> CGFloat {
         return 1 / self
@@ -79,7 +79,7 @@ extension CGFloat {
     
 }
 
-extension CGFloat {
+public extension CGFloat {
     
     func applyResistance(naturalCenterValue: CGFloat, maxIncreaseDecrease: CGFloat) -> CGFloat {
         let valueRelativeToCenter = naturalCenterValue - self
@@ -126,7 +126,7 @@ extension CGFloat {
     }
 }
 
-extension CGFloat {
+public extension CGFloat {
   
   func isInRangeOrEqual(_ from: CGFloat, _ to: CGFloat) -> Bool {
     return (from <= self && self <= to)
