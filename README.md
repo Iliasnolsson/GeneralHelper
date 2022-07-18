@@ -82,7 +82,7 @@ A large amount of enums which helps in making code easier to read & helps when d
 - SpecialMathSymbol
 ... and a bunch more
 
-## Extensions
+## Fonts
 Easier creation of scalable fonts & SF Fonts: 
 - UIFont.rounded for SF Pro Rounded, parameters for weight exists
 - UIFont.display for SF Pro Rounded, parameters for weight exists
@@ -95,8 +95,43 @@ label.font = .rounded(ofSize: .heading, maxPointSize: 20)
 label.font = .rounded(ofSize: 20, weight: .black)
 ```
 
+## UITableView & UICollectionView
+Methods have for easier register & getter for UITableViewCell & UICollectionViewCell. No need to spesify identifier, identifier is automatically set to the name of the cellClass or headerClass
 
+new:
+- register(cell cellClass: AnyClass)
+- register(header headerClass: AnyClass) 
+- dequeueReusableCell<T>(for indexPath: IndexPath) -> T?
+
+old:
+- register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String)
+- register(_ aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
+- dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell
+
+
+```swift
+// Register
+collectionView.register(cell: CustomCollectionCell.self)
+
+// Getter
+func collectionView(_ collectionView: UICollectionView,
+                    cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell: CustomCollectionCell = collectionView.dequeueReusableCell(for: indexPath)!
+    return cell
+}
+```
+
+## Task Delay
+Helper methods for creating a delay for number of seconds. There is no difference between delay & sleep, only a matter of preference. 
+- Task.sleep(seconds: Double)
+- Task.delay(seconds: Double)
+
+```swift
+await Task.delay(seconds: 2)
+await Task.sleep(seconds: 5)
+```
 ## Views
 Simplifiers, utility views & Subclasses of all UIKit views have been made which automatically sets translatesAutoresizingMaskIntoConstraints to false. Usefull when not using Storyboards. 
+
 
 
