@@ -1,4 +1,4 @@
-# GeneralHelper
+# Toolkit
 
 A Swift Package which consists of a large amount of extensions & models for simplified and added functionality.
 
