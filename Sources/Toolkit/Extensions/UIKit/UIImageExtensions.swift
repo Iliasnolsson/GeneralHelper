@@ -7,28 +7,119 @@
 
 import UIKit
 
+// MARK: System Image Initalizers
 public extension UIImage {
     
-    static func systemImage(name: String, color: UIColor, pointSize: CGFloat, weight: UIImage.SymbolWeight = .medium, scale: SymbolScale = .medium) -> UIImage? {
-        let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale)
-        return UIImage(systemName: name, withConfiguration: configuration)?.withRenderingMode(.alwaysOriginal).withTintColor(color)
+    convenience init?(systemName: String, pointSize: CGFloat) {
+        
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: pointSize))
+    }
+    convenience init?(systemName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight))
+    }
+    convenience init?(systemName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight, scale: UIImage.SymbolScale) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale))
+    }
+    convenience init?(systemName: String, scale: UIImage.SymbolScale) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(scale: scale))
+    }
+    convenience init?(systemName: String, textStyle: UIFont.TextStyle) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(textStyle: textStyle))
+    }
+    convenience init?(systemName: String, textStyle: UIFont.TextStyle, scale: UIImage.SymbolScale) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(textStyle: textStyle, scale: scale))
+    }
+    convenience init?(systemName: String, weight: UIImage.SymbolWeight) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(weight: weight))
+    }
+    convenience init?(systemName: String, font: UIFont) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(font: font))
+    }
+    convenience init?(systemName: String, font: UIFont, scale: UIImage.SymbolScale) {
+        self.init(
+            systemName: systemName,
+            withConfiguration: UIImage.SymbolConfiguration(font: font, scale: scale))
     }
     
-    static func systemImage(name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight = .medium, scale: SymbolScale = .medium) -> UIImage? {
-        let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale)
-        return UIImage(systemName: name, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate)
+}
+
+// MARK: Symbol Image Initalizers
+public extension UIImage {
+    
+    convenience init?(symbolName: String, pointSize: CGFloat) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(pointSize: pointSize))
+    }
+    convenience init?(symbolName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight))
+    }
+    convenience init?(symbolName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight, scale: UIImage.SymbolScale) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale))
+    }
+    convenience init?(symbolName: String, scale: UIImage.SymbolScale) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(scale: scale))
+    }
+    convenience init?(symbolName: String, textStyle: UIFont.TextStyle) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(textStyle: textStyle))
+    }
+    convenience init?(symbolName: String, textStyle: UIFont.TextStyle, scale: UIImage.SymbolScale) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(textStyle: textStyle, scale: scale))
+    }
+    convenience init?(symbolName: String, weight: UIImage.SymbolWeight) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(weight: weight))
+    }
+    convenience init?(symbolName: String, font: UIFont) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(font: font))
+    }
+    convenience init?(symbolName: String, font: UIFont, scale: UIImage.SymbolScale) {
+        self.init(
+            named: symbolName,
+            in: nil,
+            with: UIImage.SymbolConfiguration(font: font, scale: scale))
     }
     
-    static func symbolImage(name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight = .medium, scale: SymbolScale = .medium) -> UIImage? {
-        let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale)
-        return UIImage(named: name, in: nil, with: configuration)?.withRenderingMode(.alwaysTemplate)
-    }
-    
-    static func symbolImage(name: String, color: UIColor, pointSize: CGFloat, weight: UIImage.SymbolWeight = .medium, scale: SymbolScale = .medium) -> UIImage? {
-        let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight, scale: scale)
-        return UIImage(named: name, in: nil, with: configuration)?.withRenderingMode(.alwaysOriginal).withTintColor(color)
-    }
-    
+}
+
+public extension UIImage {
     
     func resize(to newSize: CGSize) -> UIImage {
         let image = UIGraphicsImageRenderer(size: newSize).image { _ in

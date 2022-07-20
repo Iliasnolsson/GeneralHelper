@@ -98,12 +98,12 @@ label.font = .rounded(ofSize: 20, weight: .black)
 ## UITableView & UICollectionView
 Methods have for easier register & getter for UITableViewCell & UICollectionViewCell. No need to spesify identifier, identifier is automatically set to the name of the cellClass or headerClass
 
-new:
+New:
 - register(cell cellClass: AnyClass)
 - register(header headerClass: AnyClass) 
 - dequeueReusableCell<T>(for indexPath: IndexPath) -> T?
 
-old:
+Old:
 - register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String)
 - register(_ aClass: AnyClass?, forHeaderFooterViewReuseIdentifier identifier: String)
 - dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell
@@ -132,6 +132,37 @@ await Task.sleep(seconds: 5)
 ```
 ## Views
 Simplifiers, utility views & Subclasses of all UIKit views have been made which automatically sets translatesAutoresizingMaskIntoConstraints to false. Usefull when not using Storyboards. 
+
+
+## Symbols & SF Symbols
+Easier creation of SF Symbol and custom symbol UIImage´s. 
+
+###### SF Symbol initalizers
+- init?(systemName: String, pointSize: CGFloat)
+- init?(systemName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight)
+- init?(systemName: String, pointSize: CGFloat, weight: UIImage.SymbolWeight, scale: UIImage.SymbolScale)
+
+###### Custom Symbol initalizers
+Equivalent initalizers to the ones listed above exists for custom symbols. The initalizer for custom symbol instead starts with:
+- init?(symbolName: String...
+
+
+```swift
+// Without Toolkit
+let image = UIImage(systemName: "person.2.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 14))
+
+// With ToolKit
+let image = UIImage(systemName: "person.2.fill", pointSize: 14)
+```
+
+
+## Text to Image
+Quickly convert image to text, quite useful when wanting to display emojis or other symbols on a UIImageView. 
+
+```swift
+let emojiText = "🎉"
+let emojiImage = emojiText.toImage()
+```
 
 
 
