@@ -72,7 +72,7 @@ public extension NSAttributedString {
     convenience init(text: String, attributes: [Key : Any] = [:], withSystemImage systemName: String, onSide side: SideHorizontal) {
         let color = (attributes[.foregroundColor] as? UIColor) ?? UIColor.label
         let pointSize = (attributes[.font] as? UIFont)?.pointSize ?? 12
-        let image = UIImage.systemImage(name: systemName, color: color, pointSize: pointSize)
+        let image = UIImage(systemName: systemName, pointSize: pointSize)?.withTintColor(color)
         self.init(text: text, attributes: attributes, withImage: image, onSide: side)
     }
     

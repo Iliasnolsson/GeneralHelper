@@ -98,10 +98,10 @@ public extension SpecialMathSymbol {
     func image(ofPointSize pointSize: CGFloat) -> UIImage? {
         switch self {
         case .squareRoot:
-            return .systemImage(name: "x.squareroot", pointSize: pointSize)
+            return UIImage(systemName: "x.squareroot", pointSize: pointSize)
         default:
             if let symbolImageName = symbolImageName {
-                return .symbolImage(name: symbolImageName, pointSize: pointSize)
+                return UIImage(systemName: symbolImageName, pointSize: pointSize)
             }
             return nil
         }
