@@ -164,5 +164,74 @@ let emojiText = "🎉"
 let emojiImage = emojiText.toImage()
 ```
 
+## Localizations
+Easier access and management of localizations. Easier transfer from swift localizations into other languages like javascript & typescript.
+
+Safer & easier access:
+```swift
+// Old
+let hello = NSLocalizedString("hello", comment: " ")
+        
+// New
+let hello = Localizations.hello
+```
+
+###### Setup:
+1. Localize your app as usual (https://medium.com/swift-productions/localizing-your-ios-app-xcode-12-swift-5-3-74559a431e79)
+2. Run  String.printLocalizationsSwift() at the start of the app
+```swift
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        String.printLocalizationsSwift()
+        ...
+```
+3. Copy the output from the printLocalizationsSwift() in the console 
+4. Create a file named Localizations.swift
+5. Paste the copied output (it should look something like below)
+```swift
+import Foundation
+
+class Localizations {
+    static var acceptAndJoin: String {get {"acceptAndJoin".localized}}
+    static var admin: String {get {"admin".localized}}
+    static var cancel: String {get {"cancel".localized}}
+    static var `continue`: String {get {"`continue`".localized}}
+    static var createYourOwn: String {get {"createYourOwn".localized}}
+    static var dismiss: String {get {"dismiss".localized}}
+    ...
+```
+
+###### Transfer to Javascript (ex: website): 
+1. Run String.printLocalizationsJson() at the start of the app
+2. Copy the output from the printLocalizationsJson() in the console 
+3. Paste the output into the localization .json files of the javascript application
+4. Run String.printLocalizationsJavascript() at the start of the app
+```swift
+// In the starter methods of SceneDelegate or AppDelegate
+String.printLocalizationsJavascript() 
+```
+5. Copy the output from the printLocalizationsJavascript() in the console 
+6. Create a file named Localizations.js in the Javascript application
+7. Paste the copied output into the Localizations.js file 
+
+Localizations can now in the Javascript application be accessed like below:
+```javascript
+// Old
+var invalidEmail = localize("invalidEmail")
+
+// New
+var invalidEmail = Localizations.invalidEmail
+```
+
+
+
+
+
+
+
+
 
 
