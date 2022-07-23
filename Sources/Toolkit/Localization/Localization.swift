@@ -94,7 +94,8 @@ public extension String {
     
     /// Prints a class for easier access to localizations
     static func printLocalizationsSwift() {
-        print("")
+        print("import Foundation")
+        print("import Toolkit")
         print("")
         print("class Localizations {")
         for key in localizationKeys() {

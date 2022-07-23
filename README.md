@@ -193,6 +193,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 5. Paste the copied output (it should look something like below)
 ```swift
 import Foundation
+import Toolkit
 
 class Localizations {
     static var acceptAndJoin: String {get {"acceptAndJoin".localized}}
