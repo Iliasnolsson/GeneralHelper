@@ -17,6 +17,10 @@ public extension UITableView {
         self.register(headerClass, forHeaderFooterViewReuseIdentifier: String(describing: headerClass))
     }
     
+    func register(footer headerClass: AnyClass) {
+        self.register(headerClass, forHeaderFooterViewReuseIdentifier: String(describing: headerClass))
+    }
+    
     func dequeueReusableHeaderFooterView<T>() -> T? {
         return dequeueReusableHeaderFooterView(withIdentifier: String(describing: T.self)) as? T
     }
