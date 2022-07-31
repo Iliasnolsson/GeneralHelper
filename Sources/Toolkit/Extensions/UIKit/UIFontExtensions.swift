@@ -30,11 +30,7 @@ public extension UIFont {
     static func display(ofSize fontSize: CGFloat, weight: Weight = .medium) -> UIFont {
         return UIFont.systemFont(ofSize: fontSize, weight: weight)
     }
-    
-    func relativeTo(_ textStyle: UIFont.TextStyle) -> UIFont {
-        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: self)
-    }
-    
+
 }
 
 public extension UIFont {
@@ -55,36 +51,28 @@ public extension UIFont {
 
 public extension UIFont {
     
-    static func rounded(ofSize size: UIFont.TextStyle, weight: UIFont.Weight = .regular, maxPointSize: CGFloat? = nil) -> UIFont {
+    static func rounded(ofSize size: UIFont.TextStyle, weight: UIFont.Weight = .regular) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: 10, weight: weight)
         if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
-            return UIFont(descriptor: descriptor, size: 10).with(style: size, maxPointSize: maxPointSize)
+            return UIFont(descriptor: descriptor, size: size.pointSize).relativeTo(size)
         } else {
-            return systemFont.with(style: size, maxPointSize: maxPointSize)
+            return systemFont.relativeTo(size)
         }
     }
 
-    static func display(ofSize size: UIFont.TextStyle, weight: Weight = .regular, maxPointSize: CGFloat? = nil) -> UIFont {
-        return UIFont.systemFont(ofSize: 10, weight: weight).with(style: size, maxPointSize: maxPointSize)
+    static func display(ofSize size: UIFont.TextStyle, weight: Weight = .regular) -> UIFont {
+        return UIFont.systemFont(ofSize: size.pointSize, weight: weight).relativeTo(size)
     }
     
-    func with(style: UIFont.TextStyle, maxPointSize: CGFloat? = nil) -> UIFont {
-        if let maxPointSize = maxPointSize {
-            return UIFontMetrics(forTextStyle: style).scaledFont(for: self.withSize(style.pointSize),
-                                                                 maximumPointSize: maxPointSize)
-        }
-        return UIFontMetrics(forTextStyle: style).scaledFont(for: self.withSize(style.pointSize))
+    func relativeTo(_ textStyle: UIFont.TextStyle) -> UIFont {
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: self)
     }
     
-    func with(style: UIFont.TextStyle, basePointSize: CGFloat, maxPointSize: CGFloat? = nil) -> UIFont {
-        if let maxPointSize = maxPointSize {
-            return UIFontMetrics(forTextStyle: style).scaledFont(for: self.withSize(basePointSize),
-                                                                 maximumPointSize: maxPointSize)
-        }
-        return UIFontMetrics(forTextStyle: style).scaledFont(for: self.withSize(basePointSize))
+    func relativeTo(_ textStyle: UIFont.TextStyle, maxPointSize: CGFloat) -> UIFont {
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: self, maximumPointSize: maxPointSize)
     }
+    
 }
-
 
 public extension UIFont.TextStyle {
     
