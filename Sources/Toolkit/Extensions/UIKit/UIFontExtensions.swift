@@ -31,6 +31,10 @@ public extension UIFont {
         return UIFont.systemFont(ofSize: fontSize, weight: weight)
     }
     
+    func relativeTo(_ textStyle: UIFont.TextStyle) -> UIFont {
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: self)
+    }
+    
 }
 
 public extension UIFont {
