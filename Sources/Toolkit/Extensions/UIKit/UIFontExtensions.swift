@@ -18,7 +18,7 @@ public extension UIFont {
         }
     }
     
-    static func rounded(ofSize fontSize: CGFloat, weight: UIFont.Weight = .bold) -> UIFont {
+    static func rounded(ofSize fontSize: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
         let systemFont = UIFont.systemFont(ofSize: fontSize, weight: weight)
         if let descriptor = systemFont.fontDescriptor.withDesign(.rounded) {
             return UIFont(descriptor: descriptor, size: fontSize)
@@ -27,7 +27,7 @@ public extension UIFont {
         }
     }
 
-    static func display(ofSize fontSize: CGFloat, weight: Weight = .medium) -> UIFont {
+    static func display(ofSize fontSize: CGFloat, weight: Weight = .regular) -> UIFont {
         return UIFont.systemFont(ofSize: fontSize, weight: weight)
     }
 
