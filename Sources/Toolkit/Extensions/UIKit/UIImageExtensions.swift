@@ -11,7 +11,6 @@ import UIKit
 public extension UIImage {
     
     convenience init?(systemName: String, pointSize: CGFloat) {
-        
         self.init(
             systemName: systemName,
             withConfiguration: UIImage.SymbolConfiguration(pointSize: pointSize))
@@ -61,6 +60,10 @@ public extension UIImage {
 
 // MARK: Symbol Image Initalizers
 public extension UIImage {
+    
+    convenience init?(symbolName: String) {
+        self.init(named: symbolName, in: nil, with: nil)
+    }
     
     convenience init?(symbolName: String, pointSize: CGFloat) {
         self.init(
