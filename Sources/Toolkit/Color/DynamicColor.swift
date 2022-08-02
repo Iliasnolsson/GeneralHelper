@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct DynamicColor {
+public struct DynamicColor: Color  {
     
     private var colors = [ColorTheme : any Color]()
     
@@ -15,6 +15,15 @@ public struct DynamicColor {
         for item in colors {
             self.colors[item.colorTheme] = item.color
         }
+    }
+    
+    public static func initalize(rgba: RGBA) -> DynamicColor {
+        return DynamicColor(
+            .light(rgba))
+    }
+    
+    public func rgba() -> RGBA {
+        return get(for: .current ?? .light)?.rgba() ?? .black
     }
     
     public struct Item {

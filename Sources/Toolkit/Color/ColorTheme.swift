@@ -16,4 +16,11 @@ public enum ColorTheme: Int {
         return interfaceStyle == .dark ? .dark : .light
     }
     
+    static var current: ColorTheme? {
+        if let current = UIUserInterfaceStyle.current {
+            return .from(current)
+        }
+        return nil
+    }
+    
 }
