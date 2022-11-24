@@ -42,6 +42,26 @@ public extension ClosedRange {
     
 }
 
-
-
-
+public extension ClosedRange {
+    
+    func contains(_ otherRange: ClosedRange) -> Bool {
+        return lowerBound <= otherRange.lowerBound && upperBound <= otherRange.upperBound
+    }
+    
+    func positioned(onSideOf otherRange: ClosedRange) -> SideHorizontal? {
+        if upperBound < otherRange.lowerBound {
+            return .left
+        }
+        if lowerBound > otherRange.upperBound {
+            return .right
+        }
+        return nil
+    }
+    
+    func add(_ range: ClosedRange<Bound>) -> ClosedRange<Bound> {
+        let lowestBound = Swift.min(lowerBound, range.lowerBound)
+        let highestBound = Swift.max(upperBound, range.upperBound)
+        return lowestBound...highestBound
+    }
+    
+}

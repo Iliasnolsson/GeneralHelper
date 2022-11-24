@@ -1,6 +1,6 @@
 //
 //  SelectAreaTouchTargetLayer.swift
-//  Lotte Object Engine
+//  old-version-of-secret-project Object Engine
 //
 //  Created by Ilias Nikolaidis Olsson on 2022-01-15.
 //

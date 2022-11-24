@@ -77,6 +77,10 @@ public extension CGFloat {
         return self + ((toFloat - self) * percentage)
     }
     
+    func rounded(decimal: CGFloat) -> CGFloat {
+        return (decimal * self).rounded(.toNearestOrEven) / decimal
+    }
+    
 }
 
 public extension CGFloat {

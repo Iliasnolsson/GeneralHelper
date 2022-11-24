@@ -130,3 +130,69 @@ public enum Part: String {
 }
 
 
+public extension CGRect {
+    
+    
+    init(rotated: CGRectRotated) {
+        self.init(origin: rotated.origin, size: rotated.size)
+    }
+    
+    
+    func contains(_ rect: CGRect, on axis: Axis) -> Bool {
+        return range(on: axis).contains(rect.range(on: axis))
+    }
+    
+    func overlaps(with rect: CGRect, on axis: Axis) -> Bool {
+        return range(on: axis).overlaps(rect.range(on: axis))
+    }
+
+    func range(on axis: Axis) -> ClosedRange<CGFloat> {
+        switch axis {
+        case .horizontal:
+            return minX...maxX
+        case .vertical:
+            return minY...maxY
+        }
+    }
+    
+    func origin(translateBy translation: CGPoint) -> CGRect {
+        return .init(origin: origin + translation, size: size)
+    }
+    
+    func origin(translateBy translation: CGFloat, axis: Axis) -> CGRect {
+        return axis == .horizontal ? origin(xTranslateBy: translation) : origin(yTranslateBy: translation)
+    }
+    
+    private func origin(xTranslateBy translation: CGFloat) -> CGRect {
+        return .init(origin: .init(x: translation + origin.x, y: origin.y), size: size)
+    }
+    
+    private func origin(yTranslateBy translation: CGFloat) -> CGRect {
+        return .init(origin: .init(x: origin.x, y: origin.y + translation), size: size)
+    }
+    
+}
+
+public extension Selection where Element == CGRect {
+    
+    func boundingRect() -> CGRect {
+        var boundingRect = CGRect()
+        let leftPoint = self.min {a, b in a.origin.x < b.origin.x}.origin.x
+        var rightPoint: CGFloat {
+            let rectangle = self.max {a, b in (a.origin.x + a.width) < (b.origin.x + b.width)}
+            return rectangle.origin.x + rectangle.width
+        }
+        let topPoint = self.min {a, b in a.origin.y < b.origin.y}.origin.y
+        var bottomPoint: CGFloat {
+            let rectangle = self.max {a, b in (a.origin.y + a.height) < (b.origin.y + b.height)}
+            return rectangle.origin.y + rectangle.height
+        }
+        let center = CGPoint(x: leftPoint + ((rightPoint - leftPoint) / 2), y: topPoint + ((bottomPoint - topPoint) / 2))
+        let size = CGSize(width: rightPoint - leftPoint, height: bottomPoint - topPoint)
+        boundingRect.size = size
+        boundingRect.origin = CGPoint(x: center.x - size.width / 2, y: center.y - size.height / 2)
+        return boundingRect
+    }
+    
+}
+

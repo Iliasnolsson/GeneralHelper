@@ -560,3 +560,34 @@ public extension String {
     }
     
 }
+
+
+extension String: Error {
+    
+}
+
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
+}
+
+
+public extension String {
+    
+    static func description(forTitleToMessageIn dict: [String : String], sameRow: Bool = false) -> String {
+        var description = ""
+        description.append("\r\n")
+        if sameRow {
+            for (title, message) in dict {
+                description.append(title + message)
+            }
+        } else {
+            for (title, message) in dict {
+                description.append(title)
+                description.append(message)
+            }
+        }
+        return description
+    }
+    
+    
+}

@@ -1,6 +1,6 @@
 //
 //  UICollectionViewCellExtensions.swift
-//  Lotte
+//  old-version-of-secret-project
 //
 //  Created by Ilias Nikolaidis Olsson on 2021-12-13.
 //

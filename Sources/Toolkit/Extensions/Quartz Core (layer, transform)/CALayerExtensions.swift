@@ -153,3 +153,94 @@ public extension CALayer {
     
 }
 
+
+public extension CALayer {
+    
+    func setMask(forTopLeftCornerRadius topLeft: CGFloat, topRight: CGFloat, bottomLeft: CGFloat, bottomRight: CGFloat) {
+        let maskPath = CGPath.rounded(rect: bounds, topLeft: topLeft, topRight: topRight, bottomLeft: bottomLeft, bottomRight: bottomRight)
+        let shape = CAShapeLayer()
+        shape.path = maskPath
+        maskedCorners = []
+        cornerRadius = 0
+        mask = shape
+    }
+    
+    func setMask(forCornerRadius radius: CGFloat) {
+        let shape = CAShapeLayer()
+        shape.path = .init(roundedRect: bounds, cornerWidth: radius, cornerHeight: radius, transform: nil)
+        maskedCorners = []
+        cornerRadius = 0
+        mask = shape
+    }
+    
+}
+
+
+// MARK: Setting
+public extension CALayer {
+    
+    static func set<T, Layer: CALayer>(_ layer: Layer, valueKey: WritableKeyPath<Layer, T>, to value: T, animated: Bool, duration: CFTimeInterval, option: CAMediaTimingFunction, completion: (() -> Void)? = nil) {
+        if animated {
+            CALayer.animate(layer: layer, valueKey: valueKey, to: value, duration: duration, option: option, completion: completion)
+        } else {
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
+            let keyString = NSExpression(forKeyPath: valueKey).keyPath
+            layer.setValue(value, forKey: keyString)
+            CATransaction.commit()
+        }
+    }
+    
+    func set<T>(_ valueKey: WritableKeyPath<CALayer, T>, to value: T, animated: Bool, duration: Double, option: CAMediaTimingFunction, completion: (() -> Void)? = nil) {
+        CALayer.set(self, valueKey: valueKey, to: value, animated: animated, duration: duration, option: option, completion: completion)
+    }
+    
+}
+
+public extension CAShapeLayer {
+    
+    func set<T>(shape valueKey: WritableKeyPath<CAShapeLayer, T>, to value: T, animated: Bool, duration: Double, option: CAMediaTimingFunction, completion: (() -> Void)? = nil) {
+        CALayer.set(self, valueKey: valueKey, to: value, animated: animated, duration: duration, option: option, completion: completion)
+    }
+    
+}
+
+// MARK: Corner Radius
+public extension CALayer {
+    
+    func setCornerRadius(_ radius: CGFloat) {
+        setMask(forCornerRadius: radius)
+    }
+    
+    func setCornerRadius(_ largeRadius: CGFloat, onSide side: Section, onAxis axis: Axis, smallRadius: CGFloat = 0) {
+        switch side {
+        case .start:
+            switch axis {
+            case .horizontal:
+                setMask(forTopLeftCornerRadius: largeRadius,
+                              topRight: smallRadius,
+                              bottomLeft: largeRadius,
+                              bottomRight: smallRadius)
+            case .vertical:
+                setMask(forTopLeftCornerRadius: largeRadius,
+                              topRight: largeRadius,
+                              bottomLeft: smallRadius,
+                              bottomRight: smallRadius)
+            }
+        case .end:
+            switch axis {
+            case .horizontal:
+                setMask(forTopLeftCornerRadius: smallRadius,
+                              topRight: largeRadius,
+                              bottomLeft: smallRadius,
+                              bottomRight: largeRadius)
+            case .vertical:
+                setMask(forTopLeftCornerRadius: smallRadius,
+                              topRight: smallRadius,
+                              bottomLeft: largeRadius,
+                              bottomRight: largeRadius)
+            }
+        }
+    }
+    
+}

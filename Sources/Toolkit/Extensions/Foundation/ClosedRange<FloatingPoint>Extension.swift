@@ -23,3 +23,11 @@ public extension ClosedRange where Bound: FloatingPoint {
     
 }
  
+
+public extension ClosedRange where Bound: FloatingPoint {
+    
+    var mid: Bound {(length / 2) + lowerBound}
+    
+    var length: Bound {upperBound - lowerBound}
+ 
+}

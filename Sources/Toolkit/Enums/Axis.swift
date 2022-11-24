@@ -21,6 +21,8 @@ public extension Axis {
         return self == .horizontal ? .horizontal : .vertical
     }
     
+    static var all: [Axis] = [.horizontal, .vertical]
+    
 }
 
 public extension CGPoint {

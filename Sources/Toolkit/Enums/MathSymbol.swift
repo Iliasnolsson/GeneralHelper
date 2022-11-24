@@ -1,6 +1,6 @@
 //
 //  MathSymbol.swift
-//  Lotte
+//  old-version-of-secret-project
 //
 //  Created by Ilias Nikolaidis Olsson on 2022-01-19.
 //
