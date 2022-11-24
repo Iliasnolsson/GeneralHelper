@@ -9,8 +9,8 @@ import Foundation
 
 public class Selection<Element> {
     
-    let primary: Element
-    let secondaries: [Element]
+    public let primary: Element
+    public let secondaries: [Element]
     
     public init(primary: Element, secondaries: [Element]) {
         self.primary = primary

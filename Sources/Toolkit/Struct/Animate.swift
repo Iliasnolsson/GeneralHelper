@@ -8,6 +8,11 @@
 import UIKit
 
 public struct Animate {
+
+}
+
+public extension Animate {
+    
     
     @discardableResult init(_ duration: Double, damping: CGFloat, velocity: CGFloat, animations: @escaping () -> Void, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, animations: animations, completion: completion)
@@ -25,4 +30,5 @@ public struct Animate {
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: .allowUserInteraction, animations: animations, completion: completion)
     }
 
+    
 }

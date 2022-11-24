@@ -11,7 +11,7 @@ public class TimerSession {
     
     private var timer: Timer?
     
-    init(duration: Double, repeats: Bool = false, closure: @escaping (() -> Void)) {
+    public init(duration: Double, repeats: Bool = false, closure: @escaping (() -> Void)) {
         timer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { [weak self] timer in
             closure()
             timer.invalidate()
@@ -19,7 +19,7 @@ public class TimerSession {
         }
     }
     
-    func cancel() {
+    public func cancel() {
         timer?.invalidate()
         timer = nil
     }
