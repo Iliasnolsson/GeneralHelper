@@ -8,10 +8,10 @@
 import Foundation
 import SQLite
 
-open class TablesDatabase<T> {
+open class KitTablesDatabase<T> {
     
-    public init(tables: [Table<T>], wrapped: T) {
-        let didExist = TableBase.dbExists() ?? true
+    public init(tables: [KitTable<T>], wrapped: T) {
+        let didExist = KitTableBase.dbExists() ?? true
         for table in tables {
             do {
                 try table.create(tables: wrapped)

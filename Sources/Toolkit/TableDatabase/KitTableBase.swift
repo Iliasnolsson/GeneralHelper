@@ -8,14 +8,14 @@
 import Foundation
 import SQLite
 
-open class TableBase {
+open class KitTableBase {
     
-    public var db: SQLite.Connection? {TableBase.db}
+    public var db: SQLite.Connection? {KitTableBase.db}
     
 }
 
 // MARK: Statics
-public extension TableBase {
+public extension KitTableBase {
     
     static var dbName: String? {
         return Bundle.infoPlistValue(forKey: "dbName") as? String
@@ -36,7 +36,7 @@ public extension TableBase {
             try FileManager.default.createDirectory(atPath: dbDirectoryUrl.path,
                                                     withIntermediateDirectories: true,
                                                     attributes: nil)
-            let sqliteName = TableBase.dbFileName(forName: dbName)
+            let sqliteName = KitTableBase.dbFileName(forName: dbName)
             let connectionPath = dbDirectoryUrl.appendingPathComponent(sqliteName).path
             let connection = try SQLite.Connection(connectionPath)
             return connection
@@ -49,7 +49,7 @@ public extension TableBase {
 }
 
 // MARK: Internal - Statics
-extension TableBase {
+extension KitTableBase {
     
     private static func dbDirectoryUrl(forName name: String) -> URL? {
         if name.isEmpty {return nil}

@@ -8,7 +8,7 @@
 import Foundation
 import SQLite
 
-open class Table<T>: TableBase {
+open class KitTable<T>: KitTableBase {
     
     public let sqlTable: SQLite.Table
     
