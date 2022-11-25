@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class Selection<Element> {
+open class Selection<Element> {
     
     public let primary: Element
     public let secondaries: [Element]
@@ -59,6 +59,18 @@ public extension Array {
     
     func selection() -> Selection<Element>? {
         return .init(array: self)
+    }
+    
+}
+
+// MARK: Equatable
+public extension Selection {
+    
+    static func == (lhs: Selection<Element>, rhs: Selection<Element>) -> Bool where Element: Equatable {
+        if lhs.primary == rhs.primary && lhs.secondaries.count == rhs.secondaries.count {
+            return lhs.secondaries.allSatisfyOfSameIndex(in: rhs.secondaries, {$0 == $1})
+        }
+        return false
     }
     
 }
