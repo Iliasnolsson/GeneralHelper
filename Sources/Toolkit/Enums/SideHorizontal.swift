@@ -14,7 +14,7 @@ public enum SideHorizontal {
 
 public extension SideHorizontal {
     
-    var opposite: Side {
+    var opposite: SideHorizontal {
         switch self {
         case .left:
             return .right

@@ -15,7 +15,7 @@ public enum SideVertical {
 
 public extension SideVertical {
     
-    var opposite: Side {
+    var opposite: SideVertical {
         switch self {
         case .top:
             return .bottom

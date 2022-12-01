@@ -17,6 +17,24 @@ public enum Side {
 
 public extension Side {
     
+    init(horizontal side: SideHorizontal) {
+        switch side {
+        case .left:
+            self = .left
+        case .right:
+            self = .right
+        }
+    }
+    
+    init(vertical side: SideVertical) {
+        switch side {
+        case .top:
+            self = .top
+        case .bottom:
+            self = .bottom
+        }
+    }
+    
     var opposite: Side {
         switch self {
         case .top:
