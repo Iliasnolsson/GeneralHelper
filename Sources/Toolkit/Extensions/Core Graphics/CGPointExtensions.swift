@@ -24,7 +24,7 @@ public extension CGPoint {
     /// - Returns: Rotation in radians around center
     func rotation(around center: CGPoint) -> CGFloat {
         let deltaX = x - center.x
-        let deltaY = x - center.y
+        let deltaY = y - center.y
         let radians = atan2(deltaY, deltaX)
         return radians
     }
